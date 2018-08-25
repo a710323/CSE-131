@@ -27,12 +27,47 @@ public class RobotInstructions  {
 		 * You will add instructions at the end of the code to cause the robot to move
 		 * as you desire.
 		 */
-		robot.forward(10);
+		// leave room 218
 		robot.turnRight(90);
-		robot.forward(10);
 		robot.turnRight(90);
+		robot.forward(30);
+		robot.turnLeft(90);
 		robot.forward(40);
+		
+		//Go to the stairs
 		robot.turnRight(90);
+		robot.forward(80);
+		robot.turnLeft(90);
+		robot.forward(18);
+		
+		//Go upstairs
+		robot.turnLeft(90);
+		robot.forward(25);
+		robot.turnRight(90);
+		robot.forward(5);
+		robot.turnRight(90);
+		
+		//Enter room 220
+		robot.forward(23);
+		robot.turnLeft(90);
+		
+		//Leave room 220 and direct to the bridge that connect Jolley Hall and Urbauer
+		robot.forward(20);
+		robot.turnLeft(90);
+		robot.forward(77);
+		robot.turnLeft(90);
+		robot.forward(370);
+		
+		//Go to the Office 304
+		robot.turnRight(90);
+		robot.forward(67);
+		robot.turnRight(90);
+		robot.forward(20);
+		robot.turnLeft(90);
+	
+		//Enter Professor's Office
+		robot.forward(25);
+		
 	}
 
 }
