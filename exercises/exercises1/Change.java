@@ -26,14 +26,15 @@ public class Change {
 		int penniesAfterPickle = penniesAfterDime % 5;
 		//System.out.println("And " + pickle + " pickles");
 		//System.out.println("And " + penniesAfterPickle);
-		System.out.printf("In the end, you possess: %n%d dollar%n%d quarter%n%d dime%n%d pickle%n%d pennies%n", dollar, quarter, dime, pickle, penniesAfterPickle);
 		
 		int check = penniesAfterPickle + pickle * 5 + dime * 10 + quarter * 25 + dollar * 100;
 		if(check == initialPennies) {
-			System.out.println("nThe system is ready to operate.");
+			System.out.printf("In the end, you possess: %n%d dollar%n%d quarter%n%d dime%n%d pickle%n%d pennies%n", dollar, quarter, dime, pickle, penniesAfterPickle);
+
+			System.out.println("The system is ready to operate.");
 		}
 		else {
-			System.out.println("There are some bugs in the system, correct it!");
+			System.out.println("There are some problems in the system, correct it!");
 		}
 		
 	
