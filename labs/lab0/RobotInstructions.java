@@ -28,8 +28,7 @@ public class RobotInstructions  {
 		 * as you desire.
 		 */
 		// leave room 218
-		robot.turnRight(90);
-		robot.turnRight(90);
+		robot.turnRight(180);
 		robot.forward(30);
 		robot.turnLeft(90);
 		robot.forward(40);
