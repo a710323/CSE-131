@@ -16,8 +16,15 @@ public class CarefulDivide {
 		//   instead of the quotient
 		// Otherwise, print the quotient
 		//
-
-
+		if (denominator == 0 ) {
+			System.out.println("Please enter a denominator other than 0");
+		}
+		
+		
+		else {
+			int ans = numerator / denominator;
+			System.out.println("The quotient is: " + ans);
+		}
 
 	}
 
