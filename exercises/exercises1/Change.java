@@ -33,9 +33,6 @@ public class Change {
 		else {
 			System.out.println("There are some problems in the system, correct it!");
 		}
-	
-		
-
 		//
 		// Then, compute and print out how many 
 		//    dollars, quarters, dimes, nickels, and pennies
