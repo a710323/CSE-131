@@ -24,13 +24,13 @@ public class BadSwap {
 		//      x and y?
 		//   Note that the bad swap executes only if x>y
 		//
-		// Your answer:
-		//
-		//
-		//
-		//
-		//
-		//
+		// Your answer: 
+		// if x > y, then the statement inside if would execute.
+		// First step: assign y to x, which changes the original value of x to y. 
+		// Second step: assign x to y, which changes the original value of y to x.
+		// In the first step, x value has already changed to y.
+		// That means, at the second step, x assign to y is actually assign the value of x, that is y, to y.
+		// Leave the values of x and y are both the value of y.
 
 	}
 
