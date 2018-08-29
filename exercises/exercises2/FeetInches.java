@@ -1,5 +1,7 @@
 package exercises2;
 
+import cse131.ArgsProcessor;
+
 public class FeetInches {
 
 	public static void main(String[] args) {
@@ -16,7 +18,30 @@ public class FeetInches {
 		//    the output
 		//   5 feet and 1 inch
 		//
-
+		ArgsProcessor ap = new ArgsProcessor(args);
+		int input = ap.nextInt("Enter number of inches");
+		int foot = input / 12;
+		int inch = input % 12;
+		if (input == 1) {
+			System.out.println(input + " inch equals to:");
+		}
+		else {
+			System.out.println(input + " inches equals to:");
+		}
+		
+		if (foot == 1) {
+			System.out.println(foot + " foot");
+		}
+		else {
+			System.out.println(foot + " feet");
+		}
+		if (inch == 1) {
+			System.out.println(inch + " inch");
+		}
+		else {
+			System.out.println(inch + " inches");
+		}
 	}
-
 }
+
+	
