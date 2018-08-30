@@ -26,13 +26,10 @@ public class Change {
 		//System.out.println("And " + penniesAfterPickle);
 		
 		int check = penniesAfterPickle + pickle * 5 + dime * 10 + quarter * 25 + dollar * 100;
-		if(check == initialPennies) {
-			System.out.printf("In the end, you possess: %n%d dollar%n%d quarter%n%d dime%n%d pickle%n%d pennies%n", dollar, quarter, dime, pickle, penniesAfterPickle);
-			
-		}
-		else {
-			System.out.println("There are some problems in the system, correct it!");
-		}
+		boolean isEqual = check == initialPennies;
+		System.out.println("Does the exchange work properly? " + isEqual );
+		System.out.println("In the end, you possess: \n" + dollar + " dollars\n" + quarter + " quarter\n" + dime + " dimes\n" + pickle + " pickles");
+		System.out.println(penniesAfterPickle + " pennies");
 		//
 		// Then, compute and print out how many 
 		//    dollars, quarters, dimes, nickels, and pennies
