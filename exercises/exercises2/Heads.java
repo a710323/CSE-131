@@ -6,7 +6,10 @@ public class Heads {
 
 	public static void main(String[] args) {
 		
-		for (int i=0; i < 100; i++) {
+		ArgsProcessor ap = new ArgsProcessor(args);
+		int input = ap.nextInt("How many times you want to run the experiment?");
+		
+		for (int i=0; i < input; i++) {
 		// what are the concepts?
 			int numHeads = 0;
 			int numFlips = 0;
