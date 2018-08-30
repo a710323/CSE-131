@@ -8,6 +8,7 @@ public class Heads {
 		
 		ArgsProcessor ap = new ArgsProcessor(args);
 		int input = ap.nextInt("How many times you want to run the experiment?");
+		int sum = 0;
 		
 		for (int i=0; i < input; i++) {
 		// what are the concepts?
@@ -24,9 +25,10 @@ public class Heads {
 
 			}
 		// here, numHeads should be 10
-		
+			sum = sum + numFlips;
 			System.out.println("Number of flips was " + numFlips);
 		}
+		System.out.println("Average flips to get 10 heads: " + (double)sum / input);
 
 	}
 
