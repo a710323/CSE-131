@@ -49,7 +49,8 @@ public class Nim {
 			}
 			i = i + 1;
 		}
+	
 		
-	}
+	} 
 
 }
