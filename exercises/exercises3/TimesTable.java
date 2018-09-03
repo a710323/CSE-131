@@ -16,7 +16,10 @@ public class TimesTable {
 			System.out.print(i+ "  ");
 		}
 		System.out.println();
-		System.out.println("------------------------------------");
+		for(int i=0; i <= N+1; i++) {
+			System.out.print("---");
+		}
+		System.out.println();
 		for (int i=0; i < N+1; i++) {
 			System.out.print(i + " | ");
 			for (int j=0; j < N+1; j++) {
@@ -31,6 +34,7 @@ public class TimesTable {
 			
 			}
 			System.out.println();
-		}	
+		}
+
 	}
 }
