@@ -1,5 +1,7 @@
 package exercises3;
 
+import java.util.Arrays;
+
 public class Shuffle {
 
 	public static void main(String[] args) {
@@ -19,7 +21,17 @@ public class Shuffle {
 		// shuffled array contains the same strings, but in a randomized
 		// order.
 		//
-
+		System.out.println();
+		String[] shuffled = new String[original.length];
+		for(int i=original.length - 1; i>=0; i--) {
+			int randomPick = (int)(Math.random() * (i+1));
+			shuffled[i] = original[randomPick];
+			for(int j=randomPick; j < shuffled.length - 1; j++) {
+				original[j] = original[j+1];
+			}
+			System.out.println("Shuffled at " + i + " is " + shuffled[i]);
+		}
+		System.out.println(Arrays.toString(shuffled));
 	}
 	
 }
