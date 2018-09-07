@@ -15,30 +15,30 @@ public class TimesTable {
 		
 	
 
-		int[][] table = new int[N+1][N+1];
-		System.out.print("     ");
-		for (int i=0; i<N+1;i++) {
+		int[][] table = new int[N+1][N+1];//initialize a int table
+		System.out.print("     ");//print space for the first row.
+		for (int i=0; i<N+1;i++) {//a for loop to print 0 to the number that user enters
 			System.out.print(i+ "  ");
 		}
-		System.out.println();
-		for(int i=0; i <= N+1; i++) {
+		System.out.println();//switch to the next line
+		for(int i=0; i <= N+1; i++) {//print the dash according to the number entered by user
 			System.out.print("---");
 		}
-		System.out.println();
+		System.out.println();//Starting from third row, starting to print the table we want
 		for (int i=0; i < N+1; i++) {
-			System.out.print(i + " | ");
-			for (int j=0; j < N+1; j++) {
+			System.out.print(i + " | ");//print number at the first column
+			for (int j=0; j < N+1; j++) {//a for loop calculate the times table in each spot
 				table[i][j] = i * j;
 				int entry = table[i][j];
-				if (entry < 10) {
+				if (entry < 10) {//for the clarity, if the product less than 2 digit, put a space before and after the product
 					System.out.print(" " + table[i][j]+" ");
 				}
-				else {
+				else {//for the clarity, if the product is 2 digit, put a space after the product.
 					System.out.print(table[i][j]+ " ");
 				}
 			
 			}
-			System.out.println();
+			System.out.println();//switch line
 		}
 
 	}
