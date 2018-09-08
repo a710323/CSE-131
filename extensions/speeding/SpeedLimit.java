@@ -10,11 +10,11 @@ public class SpeedLimit {
 		int offLimit = ((speed - speedLimit) > 0) ? speed - speedLimit: 0;
 		int firstFine = (speed > (speedLimit+10)) ? 50 : 0;
 		int secondFine = (speed - (speedLimit+10) > 0) ? (speed - (speedLimit+10))*10 : 0;
-		
+
 		System.out.println("You reported a speed of " + speed + " MPH for a speed limit of " + speedLimit + " MPH.");
 		System.out.println("You went " + offLimit + " over the speed limit.");
 		System.out.println("Your fine is $" + (firstFine + secondFine));
-		
+
 	}
 
 }
