@@ -15,6 +15,7 @@ public class CopyArrayAndPigLatin {
 	
 			copy[i] = names[i] + "ay";	
 		}
+		
 		// 
 		// Follow the instructions on the web page to check
 		// that your copy is correct.  Then cause the copy to store the

@@ -17,7 +17,7 @@ public class TimesTable {
 
 		int[][] table = new int[N+1][N+1];//initialize a int table
 		System.out.print("     ");//print space for the first row.
-		for (int i=0; i<N+1;i++) {//a for loop to print 0 to the number that user enters
+		for (int i=0; i<N+1;i++) {//a for loop to print 0 to the number that user enters at the first row
 			System.out.print(i+ "  ");
 		}
 		System.out.println();//switch to the next line
@@ -27,7 +27,7 @@ public class TimesTable {
 		System.out.println();//Starting from third row, starting to print the table we want
 		for (int i=0; i < N+1; i++) {
 			System.out.print(i + " | ");//print number at the first column
-			for (int j=0; j < N+1; j++) {//a for loop calculate the times table in each spot
+			for (int j=0; j < N+1; j++) {//a for loop calculate the times table in each column of the i row
 				table[i][j] = i * j;
 				int entry = table[i][j];
 				if (entry < 10) {//for the clarity, if the product less than 2 digit, put a space before and after the product

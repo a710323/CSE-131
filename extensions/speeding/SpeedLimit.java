@@ -7,6 +7,7 @@ public class SpeedLimit {
 		ArgsProcessor ap = new ArgsProcessor(args);
 		int speedLimit = ap.nextInt("Enter the speed limit");
 		int speed = ap.nextInt("What's the speed of vehicle");
+		
 		int offLimit = ((speed - speedLimit) > 0) ? speed - speedLimit: 0;
 		int firstFine = (speed > (speedLimit+10)) ? 50 : 0;
 		int secondFine = (speed - (speedLimit+10) > 0) ? (speed - (speedLimit+10))*10 : 0;
