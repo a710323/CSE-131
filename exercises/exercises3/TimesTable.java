@@ -9,11 +9,11 @@ public class TimesTable {
 	public static void main(String[] args) {
 		ArgsProcessor ap = new ArgsProcessor(args);
 		int N = ap.nextInt("Max value for table?");
-		
-				//  Table should include rows and columns for 0...N  
+
+		//  Table should include rows and columns for 0...N  
 		//     mkaing N+1 rows and columns
-		
-	
+
+
 
 		int[][] table = new int[N+1][N+1];//initialize a int table
 		System.out.print("     ");//print space for the first row.
@@ -36,7 +36,7 @@ public class TimesTable {
 				else {//for the clarity, if the product is 2 digit, put a space after the product.
 					System.out.print(table[i][j]+ " ");
 				}
-			
+
 			}
 			System.out.println();//switch line
 		}

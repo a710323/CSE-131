@@ -23,7 +23,7 @@ public class CopyArrayAndPigLatin {
 		// assuming the length or contents of the names array.
 		//
 		for(int i=0; i<copy.length; i++) {
-			System.out.println("The element of" +i + " in copy is: "  + copy[i]);
+			System.out.println("The element of " +i + " in copy is: "  + copy[i]);
 		}
 	}
 
