@@ -37,10 +37,11 @@ public class Dice {
 				}
 			}
 		}
+		System.out.println("Sum" + "\t" + "Number of times ");
+		System.out.println("\t Sum was seen");
 		for(int o = 0; o<sumAndTimes.length;o++) {
-			System.out.println(sumAndTimes[o][0] + " "+ sumAndTimes[o][1]);
+			System.out.println(sumAndTimes[o][0] + "\t"+ sumAndTimes[o][1]);
 		}
-
 		System.out.printf("The ratio of all dice are the same is: %.4f", (double)numSame/ (double)numSimu);
 	}
 }
