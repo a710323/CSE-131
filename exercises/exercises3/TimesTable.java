@@ -36,6 +36,7 @@ public class TimesTable {
 				else {//for the clarity, if the product is 2 digit, put a space after the product.
 					System.out.print(table[i][j]+ " ");
 				}
+				
 
 			}
 			System.out.println();//switch line

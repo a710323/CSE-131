@@ -26,5 +26,4 @@ public class CopyArrayAndPigLatin {
 			System.out.println("The element of " +i + " in copy is: "  + copy[i]);
 		}
 	}
-
 }

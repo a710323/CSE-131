@@ -29,6 +29,7 @@ public class Shuffle {
 			for(int j=randomPick; j < shuffled.length - 1; j++) {
 				original[j] = original[j+1];
 			}
+			
 			System.out.println("Shuffled at " + i + " is " + shuffled[i]);
 		}
 		//System.out.println(Arrays.toString(shuffled));  This line is just to try to print out the whole array.
