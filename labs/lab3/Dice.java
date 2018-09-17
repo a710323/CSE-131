@@ -44,6 +44,7 @@ public class Dice {
 				System.out.println(sumAndTimes[o][0] + "\t\t"+ sumAndTimes[o][1] +"\t\t\t" + (double)Math.round(((double)sumAndTimes[o][1]/numSimu)*1000)/10 +"%");
 			}
 		}
+		
 		System.out.println();
 		System.out.println("The ratio of all dice are the same is: " + (double)Math.round((numSame/ (double)numSimu)*1000)/10 + "%");
 	}
