@@ -12,7 +12,7 @@ public class RPS {
 		int compWin = 0;
 		int tie = 0;
 
-		System.out.println("Round\t"+name+"\t\tComputer\tOutcome");
+		System.out.println("Round\t\t"+name+"\t\tComputer\tOutcome");
 
 		for (int i =0; i<rounds; i++) {
 			int input = ap.nextInt("Enter 1 for Rock, 2 for Paper, 3 for Scissor");
@@ -83,11 +83,11 @@ public class RPS {
 					tie++;
 				}
 			}
-			System.out.println((i+1) + "\t" + input1 + "\t\t" + compMoveS + "\t\t" + outcome);		
+			System.out.println((i+1) + "\t\t" + input1 + "\t\t" + compMoveS + "\t\t" + outcome);		
 		}
 		System.out.println();
-		System.out.println(name + "'s win rate is: " + Math.round(((double)humanWin/rounds)*1000)/10 + "%");
-		System.out.println("Computer's win rate is: " + Math.round(((double)compWin/rounds)*1000)/10 + "%");
-		System.out.println("Tie rate is: " + Math.round(((double)tie/rounds)*1000)/10 + "%");
+		System.out.println(name + "'s win rate is: " + (double)Math.round(((double)humanWin/rounds)*1000)/10 + "%");
+		System.out.println("Computer's win rate is: " + (double)Math.round(((double)compWin/rounds)*1000)/10 + "%");
+		System.out.println("Tie rate is: " + (double)Math.round(((double)tie/rounds)*1000)/10 + "%");
 	}
 }
