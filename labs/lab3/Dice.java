@@ -37,11 +37,14 @@ public class Dice {
 				}
 			}
 		}
-		System.out.println("Sum" + "\t" + "Number of times ");
-		System.out.println("\t Sum was seen");
+		System.out.println("Sum" + "\t" + "Number of times " + "\t" + "% of number of times");
+		System.out.println("\t Sum was seen\t\t Sum was seen");
 		for(int o = 0; o<sumAndTimes.length;o++) {
-			System.out.println(sumAndTimes[o][0] + "\t"+ sumAndTimes[o][1]);
+			if (sumAndTimes[o][1] != 0) {
+				System.out.println(sumAndTimes[o][0] + "\t\t"+ sumAndTimes[o][1] +"\t\t\t" + (double)Math.round(((double)sumAndTimes[o][1]/numSimu)*1000)/10 +"%");
+			}
 		}
-		System.out.printf("The ratio of all dice are the same is: %.4f", (double)numSame/ (double)numSimu);
+		System.out.println();
+		System.out.println("The ratio of all dice are the same is: " + (double)Math.round((numSame/ (double)numSimu)*1000)/10 + "%");
 	}
 }
