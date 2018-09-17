@@ -18,12 +18,12 @@ public class Birthday {
 			int days = (int)(Math.random()*31 +1);
 			arr[months-1][days-1] = arr[months-1][days-1] + 1;
 		}
-		//		for (int r=0; r<12; r++) {
-		//			for(int c=0; c<31;c++) {
-		//				System.out.print(arr[r][c] + " ");
-		//			}
-		//			System.out.println();
-		//		}
+//				for (int r=0; r<12; r++) {
+//					for(int c=0; c<31;c++) {
+//						System.out.print(arr[r][c] + " ");
+//					}
+//					System.out.println();
+//				}
 		for (int k=0; k<12; k++) {
 			int monthSum = 0;
 			double fractionOfMonth = 0;
