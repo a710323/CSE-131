@@ -2,6 +2,7 @@ package exercises4;
 
 import java.awt.Color;
 
+
 import sedgewick.StdDraw;
 
 public class GraphicsDemo {
@@ -17,8 +18,10 @@ public class GraphicsDemo {
 		
 		// unfilled red triangle
 		StdDraw.setPenColor(Color.RED);
-		StdDraw.rectangle(0.34, 0.45, 0.2, 0.3);
-		
+		StdDraw.setPenRadius(0.02);
+		StdDraw.line(1, 1, 1, 0);
+		StdDraw.line(1, 0, 0.95, 1);
+		StdDraw.line(0.95, 1, 1, 1);
 		// yellow circle, filled
 		StdDraw.setPenColor(Color.YELLOW);
 		StdDraw.filledCircle(0.01, 0.02, 0.3);
