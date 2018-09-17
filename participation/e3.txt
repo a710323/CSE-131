@@ -1,0 +1,13 @@
+I am your robotic CSE131 grader, and I provide the following report for your edification.
+Report prepared at Sat Sep 15 16:09:10 CDT 2018
+To count, your work must have been done by 2018-09-14T12:00:00+00:00
+
+Exercise report:
+
+Counts?	Exercise
+Yes	CopyArrayAndPigLatin.java
+Yes	Shuffle.java
+Yes	TimesTable.java
+
+-------------
+Score:   100%
