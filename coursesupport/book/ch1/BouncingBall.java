@@ -23,7 +23,7 @@ public class BouncingBall {
         StdDraw.setYscale(-1.0, 1.0);
 
         // initial values
-        double rx = 0.480, ry = 0.860;     // position
+        double rx = -0.95, ry = 0.860;     // position
         double vx = 0.015, vy = 0.023;     // velocity
         double radius = 0.05;              // radius
 
@@ -32,7 +32,7 @@ public class BouncingBall {
 
             // bounce off wall according to law of elastic collision
             if (Math.abs(rx + vx) > 1.0 - radius) vx = -vx;
-            //if (Math.abs(ry + vy) > 1.0 - radius) vy = -vy;
+            if (Math.abs(ry + vy) > 1.0 - radius) vy = -vy;
 
             // update position
             rx = rx + vx; 

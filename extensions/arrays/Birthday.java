@@ -18,12 +18,7 @@ public class Birthday {
 			int days = (int)(Math.random()*31 +1);
 			arr[months-1][days-1] = arr[months-1][days-1] + 1;
 		}
-//				for (int r=0; r<12; r++) {
-//					for(int c=0; c<31;c++) {
-//						System.out.print(arr[r][c] + " ");
-//					}
-//					System.out.println();
-//				}
+
 		for (int k=0; k<12; k++) {
 			int monthSum = 0;
 			double fractionOfMonth = 0;
@@ -62,6 +57,12 @@ public class Birthday {
 		}
 		System.out.println("The number of people born on the exact same day is: " + exactSameDay);
 		System.out.println("The fraction of people born on the exact same day: " + (double)(Math.round(((double)exactSameDay/N)*1000))/10 + "%");
+		for (int r=0; r<12; r++) {
+			for(int c=0; c<31;c++) {
+				System.out.print(arr[r][c] + " ");
+			}
+			System.out.println();
+		}
 	}
 
 }

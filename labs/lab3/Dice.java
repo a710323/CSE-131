@@ -11,7 +11,7 @@ public class Dice {
 		int numSame = 0;
 		int[][] sumAndTimes = new int[numDice*6-numDice+1][2];
 
-		for(int m=numDice; m<=numDice*6; m++) {
+		for(int m=numDice; m<=numDice*6; m++) {//assign all the possible sum to sumAndTimes array[i][0]
 			sumAndTimes[m-numDice][0] = m;
 		}
 
@@ -26,12 +26,12 @@ public class Dice {
 						same = false; 
 					}
 				}
-				sum = rollDice + sum;
+				sum = rollDice + sum;//each simulation's sum
 			}
-			if(same == true) {
+			if(same == true) {//add one if the dice of the simulation has the same number
 				numSame++;
 			}
-			for(int l=0; l<sumAndTimes.length; l++) {
+			for(int l=0; l<sumAndTimes.length; l++) {//store the sum to sumAndTimes array[sum][1]
 				if (sumAndTimes[l][0] == sum) {
 					sumAndTimes[l][1] = sumAndTimes[l][1]+1;
 				}
@@ -40,11 +40,13 @@ public class Dice {
 		System.out.println("Sum" + "\t" + "Number of times " + "\t" + "% of number of times");
 		System.out.println("\t Sum was seen\t\t Sum was seen");
 		for(int o = 0; o<sumAndTimes.length;o++) {
-			if (sumAndTimes[o][1] != 0) {
+			if (sumAndTimes[o][1] != 0) {//if the appearance of numbers of sum isn't zero, then print it out
 				System.out.println(sumAndTimes[o][0] + "\t\t"+ sumAndTimes[o][1] +"\t\t\t" + (double)Math.round(((double)sumAndTimes[o][1]/numSimu)*1000)/10 +"%");
 			}
 		}
 		System.out.println();
-		System.out.println("The ratio of all dice are the same is: " + (double)Math.round((numSame/ (double)numSimu)*1000)/10 + "%");
+		//print out the ratio that the times of the simulation gets same dice number.
+		//and round the number to the second decimal place.
+		System.out.println("The ratio of all dice are the same is: " + (double)Math.round((numSame/ (double)numSimu)*10000)/100 + "%");
 	}
 }
