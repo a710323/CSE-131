@@ -32,5 +32,4 @@ public class ExpectedValue {
 		System.out.println();
 		System.out.println("You should be a gamer and not a programmer: " + y);
 	}
-
 }
