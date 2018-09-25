@@ -10,7 +10,7 @@ public class ExpectedValue {
 			successRate = ap.nextDouble("What's the success rate of being a gamer?");
 		}
 		double expectedSalaryOfGamer = successRate * 190000 + (1- successRate) * 50000; 
-		double programmerSalary =(int) (Math.random()*50000) + 110000;
+		double programmerSalary =(int) (Math.random()*50001) + 110000;
 		boolean x = expectedSalaryOfGamer > programmerSalary;
 		
 		System.out.printf("Gamer: $%,d" ,(int)expectedSalaryOfGamer);
@@ -20,7 +20,7 @@ public class ExpectedValue {
 		System.out.println("You should be a gamer and not a programmer: " + x);
 		
 		double utilityOfGamer = 3 * Math.sqrt(successRate * 190000 + (1- successRate) * 50000);
-		double utilityOfProgrammer = 2 * Math.sqrt((int) (Math.random()*50000) + 110000);
+		double utilityOfProgrammer = 2 * Math.sqrt((int) (Math.random()*50001) + 110000);
 		boolean y = utilityOfGamer > utilityOfProgrammer;
 		
 		System.out.println();
