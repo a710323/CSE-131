@@ -81,7 +81,7 @@ public class BumpingBalls {
 				}
 				ballPosition[i][0] = ballPosition[i][0] + ballSpeed[i][0];
 				ballPosition[i][1] = ballPosition[i][1] + ballSpeed[i][1];
-				StdDraw.picture(ballPosition[i][0], ballPosition[i][1], "images/smileyface.gif");
+//				StdDraw.picture(ballPosition[i][0], ballPosition[i][1], "images/smileyface.gif");
 				StdDraw.filledCircle(ballPosition[i][0], ballPosition[i][1], radius);
 			}
 			StdDraw.show(pauseTime);

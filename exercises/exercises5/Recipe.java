@@ -15,6 +15,10 @@ public class Recipe {
 		// Use those abstractions in comments or code to 
 		//   express the recipe
 		//
+		//First Abstraction:
+		//   heatMethod(Object, degree)
+		//Second Abastraction:
+		//	 mixWithSpoon(x, y, speed)
 	}
 
 }
