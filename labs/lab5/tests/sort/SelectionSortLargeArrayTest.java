@@ -25,11 +25,18 @@ import lab5.tests.utils.UnitTestUtils;
  *         {@link Sort#selectionSortInPlace(String[])}
  */
 @RunWith(Parameterized.class)
-public class SelectionSortComprehensiveTest {
+public class SelectionSortLargeArrayTest {
 	private final String[] original;
+	private final String[] expected;
 
-	public SelectionSortComprehensiveTest(List<String> strings) {
+	public SelectionSortLargeArrayTest(int arrayLength) {
+		final int STRING_LENGTH = 5;
+		Random random = new Random();
+		List<String> strings = StringTestUtils
+				.createUniqueStringList(() -> StringTestUtils.nextRandomString(random, STRING_LENGTH), arrayLength);
 		this.original = StringTestUtils.toStringArray(strings);
+		this.expected = Arrays.copyOf(original, original.length);
+		Arrays.parallelSort(this.expected);
 	}
 
 	@Rule
@@ -37,9 +44,6 @@ public class SelectionSortComprehensiveTest {
 
 	@Test
 	public void test() {
-		String[] expected = Arrays.copyOf(original, original.length);
-		Arrays.sort(expected);
-
 		String[] array = Arrays.copyOf(original, original.length);
 		Sort.selectionSortInPlace(array);
 		assertArrayEquals(
@@ -47,22 +51,11 @@ public class SelectionSortComprehensiveTest {
 				expected, array);
 	}
 
-	@Parameters(name = "strings: {0}")
+	@Parameters(name = "arrayLength: {0}")
 	public static Collection<Object[]> getConstructorArguments() {
 		List<Object[]> result = new LinkedList<>();
-		Random random = new Random();
-
-		final int STRING_LENGTH = 3;
-		for (int[] configs : new int[][] { { 5, 4 }, { 10, 7 } }) {
-			int iterationCount = configs[0];
-			int arrayLength = configs[1];
-			for (int i = 0; i < iterationCount; i++) {
-				List<String> strings = StringTestUtils.createUniqueStringList(
-						() -> StringTestUtils.nextRandomString(random, STRING_LENGTH), arrayLength);
-				result.add(new Object[] { strings });
-			}
-		}
-
+		result.add(new Object[] { 131 });
+		result.add(new Object[] { 1853 });
 		return result;
 	}
 

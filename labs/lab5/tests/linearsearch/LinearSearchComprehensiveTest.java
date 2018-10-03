@@ -100,7 +100,7 @@ public class LinearSearchComprehensiveTest {
 			int iterationCount = configs[0];
 			int arrayLength = configs[1];
 			for (int i = 0; i < iterationCount; i++) {
-				List<String> strings = StringTestUtils.createUniqueStringList(random,
+				List<String> strings = StringTestUtils.createUniqueStringList(
 						() -> StringTestUtils.nextRandomString(random, STRING_LENGTH), arrayLength);
 				String missingKey = strings.remove(strings.size() - 1);
 				int expectedIndex = 0;

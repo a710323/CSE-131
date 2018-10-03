@@ -74,7 +74,7 @@ public class FindComprehensiveTest {
 			int arrayLength = configs[1];
 
 			for (int iteration = 0; iteration < iterationCount; iteration++) {
-				List<String> strings = StringTestUtils.createUniqueStringList(random,
+				List<String> strings = StringTestUtils.createUniqueStringList(
 						() -> StringTestUtils.nextRandomString(random, STRING_LENGTH), arrayLength);
 				for (int fromIndex = 0; fromIndex < strings.size(); fromIndex++) {
 					result.add(new Object[] { strings, fromIndex, IntStream.range(fromIndex, strings.size())

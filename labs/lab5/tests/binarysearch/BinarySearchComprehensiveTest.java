@@ -17,7 +17,6 @@ import org.junit.runners.Parameterized;
 import org.junit.runners.Parameterized.Parameters;
 
 import lab5.BinarySearch;
-import lab5.LinearSearch;
 import lab5.tests.utils.StringTestUtils;
 import lab5.tests.utils.UnitTestUtils;
 
@@ -42,7 +41,7 @@ public class BinarySearchComprehensiveTest {
 	public TestRule timeout = UnitTestUtils.createTimeoutRule();
 
 	private int search(String[] array) {
-		return LinearSearch.findFirstIndexIn(array, key);
+		return BinarySearch.findIndexInSorted(array, key);
 	}
 
 	@Test
@@ -96,7 +95,7 @@ public class BinarySearchComprehensiveTest {
 			int iterationCount = configs[0];
 			int arrayLength = configs[1];
 			for (int i = 0; i < iterationCount; i++) {
-				List<String> strings = StringTestUtils.createUniqueSortedStringList(random,
+				List<String> strings = StringTestUtils.createUniqueSortedStringList(
 						() -> StringTestUtils.nextRandomString(random, STRING_LENGTH), arrayLength);
 				String missingKey = strings.remove(strings.size() - 1);
 				int expectedIndex = 0;

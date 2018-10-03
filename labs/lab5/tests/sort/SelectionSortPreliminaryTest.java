@@ -36,7 +36,7 @@ public class SelectionSortPreliminaryTest {
 
 	@Test
 	public void testReversed() {
-		String[] original = { "D", "C", "A", "B" };
+		String[] original = { "D", "C", "B", "A" };
 
 		String[] array = Arrays.copyOf(original, original.length);
 		Sort.selectionSortInPlace(array);

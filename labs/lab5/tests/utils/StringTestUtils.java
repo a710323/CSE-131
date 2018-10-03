@@ -17,7 +17,7 @@ public class StringTestUtils {
 		return Arrays.asList(elements);
 	}
 
-	private static Set<String> createSet(Random random, Supplier<String> supplier, int length) {
+	private static Set<String> createSet(Supplier<String> supplier, int length) {
 		Set<String> set = new HashSet<>();
 		while (set.size() < length) {
 			String s = supplier.get();
@@ -26,16 +26,16 @@ public class StringTestUtils {
 		return set;
 	}
 
-	public static List<String> createUniqueStringList(Random random, Supplier<String> supplier, int length) {
-		Set<String> set = createSet(random, supplier, length);
+	public static List<String> createUniqueStringList(Supplier<String> supplier, int length) {
+		Set<String> set = createSet(supplier, length);
 		List<String> list = new ArrayList<>(set);
 		// note: hash set should be unordered already
 		Collections.shuffle(list);
 		return list;
 	}
 
-	public static List<String> createUniqueSortedStringList(Random random, Supplier<String> supplier, int length) {
-		Set<String> set = createSet(random, supplier, length);
+	public static List<String> createUniqueSortedStringList(Supplier<String> supplier, int length) {
+		Set<String> set = createSet(supplier, length);
 		List<String> list = new ArrayList<>(set);
 		Collections.sort(list);
 		return list;
