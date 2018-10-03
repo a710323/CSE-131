@@ -19,7 +19,8 @@ public class Methods {
 	 * @return the product of the factors
 	 */
 	public static int mpy(int x, int y) {
-		return 0;  // FIXME
+		
+		return x*y;  // FIXME
 	}
 
 

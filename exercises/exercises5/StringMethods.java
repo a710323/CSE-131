@@ -32,7 +32,7 @@ public class StringMethods {
 	
 	public static String join(String[] array, String joiner) {
 		if (array.length ==0) {
-			return"";  
+			return "";
 		}
 		String ans = array[0];
 		for (int i=1; i < array.length; i++) {
