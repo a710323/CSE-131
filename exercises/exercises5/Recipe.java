@@ -16,7 +16,7 @@ public class Recipe {
 		//   express the recipe
 		//
 		//First Abstraction:
-		//   heatMethod(Object, degree)
+		//   heatMethod(Object, degree, time)
 		//Second Abastraction:
 		//	 mixWithSpoon(x, y, speed)
 	}
