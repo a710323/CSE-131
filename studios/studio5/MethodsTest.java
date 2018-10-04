@@ -19,6 +19,7 @@ public class MethodsTest {
 			assertEquals(i+i, Methods.sum(i, i));
 		}
 	}
+	 
 	
 	@Test
 	public void thisTestShouldFail() {

@@ -39,7 +39,7 @@ public class BonusMethods {
 		}
 		return sum;
 	}
-
+ 
 	public static int mult(int j, int k) {
 		int ans = multPos(Math.abs(j), Math.abs(k));
 		if (j < 0 || k<0) {

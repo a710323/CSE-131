@@ -154,7 +154,7 @@ public class BonusMethodsTester {
 	/**
 	 * Tests the expt method using randomly generated input
 	 */
-	@Test
+	@Test 
 	public void testExpt() {
 		
 		for(int i = 0; i < 100; i++)
