@@ -18,6 +18,7 @@ public class Sort {
 	 * @param fromIndex the index from which to search until the each of the array
 	 * @return the index of the lexicographically earliest value
 	 */
+	
 	public static int findIndexOfLexicographicallyEarliestValue(String[] array, int fromIndex) {
 		String min=array[fromIndex];
 		int k = fromIndex;

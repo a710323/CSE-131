@@ -34,6 +34,7 @@ public class BinarySearch {
 	 * @return an index of an occurrence of key, if it is contained in the array;
 	 *         otherwise -1.
 	 */
+	
 	public static int findIndexInSorted(String[] array, String key) {
 		int startpoint = 0;
 		int endpoint = array.length-1;
