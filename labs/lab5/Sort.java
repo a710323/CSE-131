@@ -19,7 +19,17 @@ public class Sort {
 	 * @return the index of the lexicographically earliest value
 	 */
 	public static int findIndexOfLexicographicallyEarliestValue(String[] array, int fromIndex) {
-		throw new NotYetImplementedException("delete this line of code and implement this method.");
+		String min=array[fromIndex];
+		int k = fromIndex;
+		int ans = k;
+		while(k<array.length) {
+			if(array[k].compareTo(min)<0) {
+				min = array[k];
+				ans = k;
+			}
+			k++;
+		}
+		return ans;
 	}
 
 	/**
@@ -36,7 +46,9 @@ public class Sort {
 	 *               array[aIndex]
 	 */
 	public static void swapValuesAtIndicesInPlace(String[] array, int aIndex, int bIndex) {
-		throw new NotYetImplementedException("delete this line of code and implement this method.");
+		String temp = array[findIndexOfLexicographicallyEarliestValue(array, aIndex)];
+		array[findIndexOfLexicographicallyEarliestValue(array, aIndex)] = array[bIndex];
+		array[bIndex] = temp;
 	}
 
 	/**
@@ -46,7 +58,12 @@ public class Sort {
 	 * @param array the array to sort in place
 	 */
 	public static void selectionSortInPlace(String[] array) {
-		throw new NotYetImplementedException("delete this line of code and implement this method.");
+		int a = 0;
+		for(int j=0; j<array.length;j++) {
+			a = findIndexOfLexicographicallyEarliestValue(array, j);
+			swapValuesAtIndicesInPlace(array, a, j);
+			a++;
+		}
 	}
 
 	/**
@@ -60,6 +77,12 @@ public class Sort {
 	 * @return true if the array is sorted, otherwise false.
 	 */
 	public static boolean isSorted(String[] array) {
-		throw new NotYetImplementedException("delete this line of code and implement this method.");
+		boolean ans = true;
+		for (int i = 1; i<array.length;i++) {
+			if (array[i].compareTo(array[i-1])<0) {
+				return false;
+			}
+		}
+		return ans;
 	}
 }

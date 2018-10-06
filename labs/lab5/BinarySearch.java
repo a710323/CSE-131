@@ -14,7 +14,8 @@ public class BinarySearch {
 	 * @return the midpoint of a and b
 	 */
 	public static int calculateMidPoint(int a, int b) {
-		throw new NotYetImplementedException("delete this line of code and implement this method.");
+		int midPoint = (a+b)/2;
+		return midPoint;
 	}
 
 	/**
@@ -34,6 +35,20 @@ public class BinarySearch {
 	 *         otherwise -1.
 	 */
 	public static int findIndexInSorted(String[] array, String key) {
-		throw new NotYetImplementedException("delete this line of code and implement this method.");
+		int startpoint = 0;
+		int endpoint = array.length-1;
+		while((endpoint - startpoint) >= 0) {
+			int midpoint = calculateMidPoint(startpoint, endpoint);
+			if (Strings.equals(array[midpoint], key)) {
+				return midpoint;
+			}
+			else if (Strings.isGreaterThan(array[midpoint], key)) {
+				endpoint = midpoint -1;
+			}
+			else if (Strings.isLessThan(array[midpoint], key)) {
+				startpoint = midpoint + 1;
+			}
+		}
+		return -1;
 	}
 }
