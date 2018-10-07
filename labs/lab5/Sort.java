@@ -51,8 +51,6 @@ public class Sort {
 		array[findIndexOfLexicographicallyEarliestValue(array, aIndex)] = array[bIndex];
 		array[bIndex] = temp;
 	}
-
-	
 	/**
 	 * Sorts the specified array into ascending lexicographical order. This will
 	 * necessarily mutate (that is: change the contents of) the specified array.
