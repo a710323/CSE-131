@@ -42,9 +42,7 @@ public class SelectionSortComprehensiveTest {
 
 		String[] array = Arrays.copyOf(original, original.length);
 		Sort.selectionSortInPlace(array);
-		assertArrayEquals(
-				"\n\nexpected:\n\t\t" + Arrays.toString(expected) + "\nactual:\n\t\t" + Arrays.toString(array) + "\n",
-				expected, array);
+		assertArrayEquals(StringTestUtils.createMessage(expected, array), expected, array);
 	}
 
 	@Parameters(name = "strings: {0}")

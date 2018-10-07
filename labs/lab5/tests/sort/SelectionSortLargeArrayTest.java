@@ -40,15 +40,13 @@ public class SelectionSortLargeArrayTest {
 	}
 
 	@Rule
-	public TestRule timeout = UnitTestUtils.createTimeoutRule(3);
+	public TestRule timeout = UnitTestUtils.createTimeoutRule();
 
 	@Test
 	public void test() {
 		String[] array = Arrays.copyOf(original, original.length);
 		Sort.selectionSortInPlace(array);
-		assertArrayEquals(
-				"\n\nexpected:\n\t\t" + Arrays.toString(expected) + "\nactual:\n\t\t" + Arrays.toString(array) + "\n",
-				expected, array);
+		assertArrayEquals(StringTestUtils.createMessage(expected, array), expected, array);
 	}
 
 	@Parameters(name = "arrayLength: {0}")
