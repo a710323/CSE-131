@@ -6,6 +6,8 @@ import java.util.Random;
 import java.util.concurrent.ForkJoinPool;
 import java.util.function.BiFunction;
 
+import javafx.animation.KeyFrame;
+import javafx.animation.Timeline;
 import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.concurrent.Task;
@@ -13,7 +15,10 @@ import javafx.scene.Scene;
 import javafx.scene.chart.LineChart;
 import javafx.scene.chart.NumberAxis;
 import javafx.scene.chart.XYChart;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.stage.Stage;
+import javafx.util.Duration;
 import lab5.BinarySearch;
 import lab5.LinearSearch;
 import lab5.tests.utils.StringTestUtils;
@@ -42,12 +47,19 @@ public class SearchTimingChartApp extends Application {
 
 	private static void kickInTheJustInTimeCompiler() {
 		Random random = new Random();
-		String[] array = StringTestUtils.toStringArray(
-				StringTestUtils.createUniqueSortedStringList(() -> StringTestUtils.nextRandomString(random, 3), 1_000));
 		String key = "JIT";
-		for (int i = 0; i < 100_000; i++) {
+		String[] array = StringTestUtils.toStringArray(
+				StringTestUtils.createUniqueSortedStringList(() -> StringTestUtils.nextRandomString(random, key.length()+1), 1_000));
+		Timeline linearSearchTimeline = createAlertTimeline("LinearSearch.findFirstIndexIn");
+		Timeline binarySearchTimeline = createAlertTimeline("BinarySearch.findIndexInSorted");
+		for (int i = 0; i < 10_000; i++) {
+			linearSearchTimeline.play();
 			LinearSearch.findFirstIndexIn(array, key);
+			linearSearchTimeline.stop();
+
+			binarySearchTimeline.play();
 			BinarySearch.findIndexInSorted(array, key);
+			binarySearchTimeline.stop();
 		}
 	}
 
@@ -63,12 +75,26 @@ public class SearchTimingChartApp extends Application {
 		return (tDelta * 0.001) / TIMING_ITERATIONS;
 	}
 
+	private static Timeline createAlertTimeline(String headerPrefix) {
+		return new Timeline(new KeyFrame(Duration.millis(1_000), (actionEvent) -> {
+			Platform.runLater(() -> {
+				Alert alert = new Alert(AlertType.INFORMATION);
+				alert.setHeaderText(headerPrefix + " is taking longer than expected.\nInfinite loop???");
+				alert.showAndWait();
+			});
+		}));
+	}
+
 	private static Task<Void> createTask(int min, int maxInclusive, XYChart.Series<Number, Number> linearSearchSeries,
 			XYChart.Series<Number, Number> binarySearchSeries) {
 		Task<Void> result = new Task<Void>() {
 			@Override
 			protected Void call() throws Exception {
 				Random random = new Random();
+
+				Timeline linearSearchTimeline = createAlertTimeline("LinearSearch.findFirstIndexIn");
+				Timeline binarySearchTimeline = createAlertTimeline("BinarySearch.findIndexInSorted");
+
 				for (int n = min; n <= maxInclusive; n++) {
 
 					int arrayLength = n * ARRAY_LENGTH_MULTIPLIER;
@@ -76,11 +102,15 @@ public class SearchTimingChartApp extends Application {
 							() -> StringTestUtils.nextRandomString(random, STRING_LENGTH), arrayLength);
 					String[] array = StringTestUtils.toStringArray(unsorted);
 
+					linearSearchTimeline.play();
 					double tLinear = time(random, array, LinearSearch::findFirstIndexIn);
+					linearSearchTimeline.stop();
 					updateLater(linearSearchSeries, n, tLinear);
 
 					Arrays.sort(array);
+					binarySearchTimeline.play();
 					double tBinary = time(random, array, BinarySearch::findIndexInSorted);
+					binarySearchTimeline.stop();
 					updateLater(binarySearchSeries, n, tBinary);
 				}
 				return null;
@@ -107,7 +137,7 @@ public class SearchTimingChartApp extends Application {
 		xAxis.setTickUnit(increment);
 		xAxis.setMinorTickCount(0);
 
-		//TODO
+		// TODO
 		yAxis.setUpperBound(0.00003);
 
 		LineChart<Number, Number> lineChart = new LineChart<>(xAxis, yAxis);
@@ -118,6 +148,8 @@ public class SearchTimingChartApp extends Application {
 		stage.setScene(scene);
 		stage.show();
 
+		kickInTheJustInTimeCompiler();
+		
 		XYChart.Series<Number, Number> linearSearchSeries = new XYChart.Series<>();
 		linearSearchSeries.setName("Linear Search");
 		lineChart.getData().add(linearSearchSeries);
@@ -131,7 +163,6 @@ public class SearchTimingChartApp extends Application {
 	}
 
 	public static void main(String[] args) {
-		kickInTheJustInTimeCompiler();
 		launch(args);
 	}
 }

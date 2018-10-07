@@ -11,6 +11,7 @@ import org.junit.rules.TestRule;
 import org.junit.runners.MethodSorters;
 
 import lab5.Sort;
+import lab5.tests.utils.StringTestUtils;
 import lab5.tests.utils.UnitTestUtils;
 
 /**
@@ -42,8 +43,6 @@ public class SelectionSortPreliminaryTest {
 		Sort.selectionSortInPlace(array);
 
 		String[] expected = { "A", "B", "C", "D" };
-		assertArrayEquals(
-				"\n\nexpected:\n\t\t" + Arrays.toString(expected) + "\nactual:\n\t\t" + Arrays.toString(array) + "\n",
-				expected, array);
+		assertArrayEquals(StringTestUtils.createMessage(expected, array), expected, array);
 	}
 }
