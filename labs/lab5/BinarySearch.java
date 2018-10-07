@@ -18,6 +18,7 @@ public class BinarySearch {
 		return midPoint;
 	}
 
+	
 	/**
 	 * Searches the specified sorted array for the value specified by key. If the
 	 * array contains key, then it returns an index which holds the value, otherwise

@@ -22,6 +22,7 @@ public class LinearSearch {
 	 *         array; otherwise -1.
 	 */
 	
+	
 	public static int findFirstIndexIn(String[] array, String key) {
 		int ans = 0;
 		for (int i =ans; i<array.length;i++ ) {
