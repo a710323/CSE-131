@@ -21,12 +21,15 @@ public class GraphPaper {
 		//  the square (divide into 4 portions). Your code goes
 		//  below here:
 		//
-		
+		else {
+			StdDraw.line(llx, lly+ size/2, llx+size, lly+size/2);
+			StdDraw.line(llx+size/2, lly, llx+size/2, lly+size);
+		}
 		// 
 		// Now, after you have drown athose two lines,
 		// let's pause to accentuate the recursive drama
 		//
-		StdDraw.pause(500);
+//		StdDraw.pause(500);
 		//
 		//
 		// Now recursively consider the
@@ -34,6 +37,10 @@ public class GraphPaper {
 		//   subcases
 		//   Your code for those subcases should go below here:
 		//
+		gp(llx,lly,size/2);//lower left
+		gp(llx,lly+size/2, size/2);//upper left
+		gp(llx+size/2,lly+size/2, size/2);//upper right
+		gp(llx+size/2,lly,size/2);//lower right
 
 		
 	}
@@ -48,7 +55,6 @@ public class GraphPaper {
 		// StdDraw.show(10);  // don't show anything
 		gp(0, 0, 1);
 		// StdDraw.show(10);  // until now
-
 	}
 
 }
