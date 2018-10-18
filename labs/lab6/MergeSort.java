@@ -94,9 +94,9 @@ public class MergeSort {
 			copy[0] = array[min];
 			return copy;
 		}
-		int m = (min+maxExclusive)/2;
-		String[] x = createSortedArrayInRange(array,min,m);
-		String[] y = createSortedArrayInRange(array,m,maxExclusive);
+		int mid = (min+maxExclusive)/2;
+		String[] x = createSortedArrayInRange(array,min,mid);
+		String[] y = createSortedArrayInRange(array,mid,maxExclusive);
 		return mergeCombine(x,y);
 	}
 
