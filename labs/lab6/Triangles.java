@@ -5,7 +5,7 @@ import sedgewick.StdDraw;
 public class Triangles {
 	
 	public static void triangle(double llx,double lly,double size) {
-		if(size<0.01) {
+		if(size<0.03) {
 			return;
 		}
 		StdDraw.setPenColor(StdDraw.WHITE);
@@ -15,7 +15,6 @@ public class Triangles {
 		triangle(llx, lly, size/2);//left
 		triangle(llx+size/2, lly,size/2);//right
 		triangle(llx+size/4, lly+size/2, size/2);
-		
 	}
 
 	public static void main(String[] args) {
@@ -26,6 +25,6 @@ public class Triangles {
 		StdDraw.show(20);
 		triangle(0,0,1);
 		StdDraw.show(20);
+		
 	}
-
 }

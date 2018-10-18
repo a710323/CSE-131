@@ -89,7 +89,7 @@ public class MergeSort {
 	 */
 
 	public static String[] createSortedArrayInRange(String[] array, int min, int maxExclusive) {
-		if(min+1>=maxExclusive) {
+		if(maxExclusive-min<2) {
 			String[] copy = new String[1];
 			copy[0] = array[min];
 			return copy;
@@ -99,6 +99,15 @@ public class MergeSort {
 		String[] y = createSortedArrayInRange(array,mid,maxExclusive);
 		return mergeCombine(x,y);
 	}
+	
+//	public static String[] createSortedArrayInRange2(String[] array, int min, int maxExclusive) {
+//		if(maxExclusive-min < 2) {
+//			String[] copy = new String[1];
+//			copy[0] = array[min];
+//			return  copy;
+//		}
+//		return array;
+//	}
 
 
 	/**
