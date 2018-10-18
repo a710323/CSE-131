@@ -20,7 +20,7 @@ public class MergeSort {
 		// if you would prefer to use your implementation from the previous studio,
 		// then change the line below to read:
 		// final boolean IS_USE_OF_STUDIO_DESIRED = true;
-		final boolean IS_USE_OF_STUDIO_DESIRED = false;
+		final boolean IS_USE_OF_STUDIO_DESIRED = true;
 		if (IS_USE_OF_STUDIO_DESIRED) {
 			return MergeCombiner.createMergeCombinedArray(a, b);
 		} else {
@@ -87,9 +87,19 @@ public class MergeSort {
 	 * @return a sorted array of the subrange of contents in the specified array
 	 *         from [min, maxExclusive).
 	 */
+
 	public static String[] createSortedArrayInRange(String[] array, int min, int maxExclusive) {
-		throw new NotYetImplementedException("delete this line of code and implement this method.");
+		if(min+1>=maxExclusive) {
+			String[] copy = new String[1];
+			copy[0] = array[min];
+			return copy;
+		}
+		int m = (min+maxExclusive)/2;
+		String[] x = createSortedArrayInRange(array,min,m);
+		String[] y = createSortedArrayInRange(array,m,maxExclusive);
+		return mergeCombine(x,y);
 	}
+
 
 	/**
 	 * Creates a new array whose contents are a sorted in ascending lexicographical
