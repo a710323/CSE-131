@@ -87,7 +87,7 @@ public class MergeSort {
 	 * @return a sorted array of the subrange of contents in the specified array
 	 *         from [min, maxExclusive).
 	 */
-
+	//This method is the better solution, which it doesn't create any array until reach the base case.
 	public static String[] createSortedArrayInRange(String[] array, int min, int maxExclusive) {
 		if(maxExclusive-min<2) {
 			String[] copy = new String[1];
@@ -99,7 +99,7 @@ public class MergeSort {
 		String[] y = createSortedArrayInRange(array,mid,maxExclusive);
 		return mergeCombine(x,y);
 	}
-
+	//This is the method I'm playing with. Creating 2 new arrays at the time of dividing the input array into smaller ones.
 	public static String[] createSortedArrayInRange3(String[] array, int min, int maxExclusive) {
 		if((maxExclusive-min)<=1) {
 			return array;
@@ -118,32 +118,32 @@ public class MergeSort {
 		return mergeCombine(w,z);
 	}
 
-
-	//	public static String[] createSortedArrayInRange2(String[] array, int min, int maxExclusive) {
-	//		if(maxExclusive-min < 2) {
-	//			String[] copy = new String[1];
-	//			copy[0] = array[min];
-	//			return copy;
-	//		}
-	//		String[] copy = new String[maxExclusive-min];
-	//		for(int i = min; i<maxExclusive-min;i++) {
-	//			copy[i-min] = array[i];
-	//		}
-	//		for(int i = min; i<maxExclusive-min; i++) {
-	//			String stored = copy[i];
-	//			int k = i;
-	//			for(int j=i;j<maxExclusive-min;j++) {
-	//				if(copy[j].compareTo(stored)<0) {
-	//					stored = copy[j];
-	//					k=j;
-	//				}
-	//			}
-	//			String temp = copy[i];
-	//			copy[i] = stored;
-	//			copy[k] = temp;
-	//		}
-	//		return copy;
-	//	}
+	//This is a method using selection sort, and this is my first intuitive answer, but it failed to past the large array test.
+		public static String[] createSortedArrayInRange2(String[] array, int min, int maxExclusive) {
+			if(maxExclusive-min < 2) {
+				String[] copy = new String[1];
+				copy[0] = array[min];
+				return copy;
+			}
+			String[] copy = new String[maxExclusive-min];
+			for(int i = min; i<maxExclusive-min;i++) {
+				copy[i-min] = array[i];
+			}
+			for(int i = min; i<maxExclusive-min; i++) {
+				String stored = copy[i];
+				int k = i;
+				for(int j=i;j<maxExclusive-min;j++) {
+					if(copy[j].compareTo(stored)<0) {
+						stored = copy[j];
+						k=j;
+					}
+				}
+				String temp = copy[i];
+				copy[i] = stored;
+				copy[k] = temp;
+			}
+			return copy;
+		}
 
 
 	/**
@@ -164,7 +164,7 @@ public class MergeSort {
 		// handle the 0 array length case here, so the recursive
 		// createSortedArrayInRange need not worry about it.
 		if (array.length > 0) {
-			return createSortedArrayInRange3(array, 0, array.length);
+			return createSortedArrayInRange(array, 0, array.length);
 		} else {
 			return new String[0];
 		}
