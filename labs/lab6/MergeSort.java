@@ -105,9 +105,26 @@ public class MergeSort {
 //		if(maxExclusive-min < 2) {
 //			String[] copy = new String[1];
 //			copy[0] = array[min];
-//			return  copy;
+//			return copy;
 //		}
-//		return array;
+//		String[] copy = new String[maxExclusive-min];
+//		for(int i = min; i<maxExclusive-min;i++) {
+//			copy[i-min] = array[i];
+//		}
+//		for(int i = min; i<maxExclusive-min; i++) {
+//			String stored = copy[i];
+//			int k = i;
+//			for(int j=i;j<maxExclusive-min;j++) {
+//				if(copy[j].compareTo(stored)<0) {
+//					stored = copy[j];
+//					k=j;
+//				}
+//			}
+//			String temp = copy[i];
+//			copy[i] = stored;
+//			copy[k] = temp;
+//		}
+//		return copy;
 //	}
 
 
