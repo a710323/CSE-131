@@ -20,7 +20,7 @@ public class MergeSort {
 		// if you would prefer to use your implementation from the previous studio,
 		// then change the line below to read:
 		// final boolean IS_USE_OF_STUDIO_DESIRED = true;
-		final boolean IS_USE_OF_STUDIO_DESIRED = true;
+		final boolean IS_USE_OF_STUDIO_DESIRED = false;
 		if (IS_USE_OF_STUDIO_DESIRED) {
 			return MergeCombiner.createMergeCombinedArray(a, b);
 		} else {
@@ -99,33 +99,51 @@ public class MergeSort {
 		String[] y = createSortedArrayInRange(array,mid,maxExclusive);
 		return mergeCombine(x,y);
 	}
-	
-	
-//	public static String[] createSortedArrayInRange2(String[] array, int min, int maxExclusive) {
-//		if(maxExclusive-min < 2) {
-//			String[] copy = new String[1];
-//			copy[0] = array[min];
-//			return copy;
-//		}
-//		String[] copy = new String[maxExclusive-min];
-//		for(int i = min; i<maxExclusive-min;i++) {
-//			copy[i-min] = array[i];
-//		}
-//		for(int i = min; i<maxExclusive-min; i++) {
-//			String stored = copy[i];
-//			int k = i;
-//			for(int j=i;j<maxExclusive-min;j++) {
-//				if(copy[j].compareTo(stored)<0) {
-//					stored = copy[j];
-//					k=j;
-//				}
-//			}
-//			String temp = copy[i];
-//			copy[i] = stored;
-//			copy[k] = temp;
-//		}
-//		return copy;
-//	}
+
+	public static String[] createSortedArrayInRange3(String[] array, int min, int maxExclusive) {
+		if((maxExclusive-min)<=1) {
+			return array;
+		}
+		int mid = (min+maxExclusive)/2;
+		String[] x = new String[mid-min];
+		String[] y = new String[maxExclusive - mid];
+		for(int i = min; i < mid; i++) {
+			x[i-min] = array[i];
+		}
+		for(int j = mid; j < maxExclusive; j++) {
+			y[j-mid] = array[j];
+		}
+		String[] w = createSortedArrayInRange3(x, 0, x.length);
+		String[] z = createSortedArrayInRange3(y, 0, y.length);
+		return mergeCombine(w,z);
+	}
+
+
+	//	public static String[] createSortedArrayInRange2(String[] array, int min, int maxExclusive) {
+	//		if(maxExclusive-min < 2) {
+	//			String[] copy = new String[1];
+	//			copy[0] = array[min];
+	//			return copy;
+	//		}
+	//		String[] copy = new String[maxExclusive-min];
+	//		for(int i = min; i<maxExclusive-min;i++) {
+	//			copy[i-min] = array[i];
+	//		}
+	//		for(int i = min; i<maxExclusive-min; i++) {
+	//			String stored = copy[i];
+	//			int k = i;
+	//			for(int j=i;j<maxExclusive-min;j++) {
+	//				if(copy[j].compareTo(stored)<0) {
+	//					stored = copy[j];
+	//					k=j;
+	//				}
+	//			}
+	//			String temp = copy[i];
+	//			copy[i] = stored;
+	//			copy[k] = temp;
+	//		}
+	//		return copy;
+	//	}
 
 
 	/**
@@ -146,7 +164,7 @@ public class MergeSort {
 		// handle the 0 array length case here, so the recursive
 		// createSortedArrayInRange need not worry about it.
 		if (array.length > 0) {
-			return createSortedArrayInRange(array, 0, array.length);
+			return createSortedArrayInRange3(array, 0, array.length);
 		} else {
 			return new String[0];
 		}
