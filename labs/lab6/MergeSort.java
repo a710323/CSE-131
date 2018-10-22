@@ -87,7 +87,7 @@ public class MergeSort {
 	 * @return a sorted array of the subrange of contents in the specified array
 	 *         from [min, maxExclusive).
 	 */
-	//This method is the better solution, which it doesn't create any array until reach the base case.
+	//This method is the better solution, which doesn't create any array until reach the base case.
 	public static String[] createSortedArrayInRange(String[] array, int min, int maxExclusive) {
 		if(maxExclusive-min<2) {
 			String[] copy = new String[1];

@@ -8,6 +8,7 @@ public class Triangles {
 		if(size<0.01) {
 			return;
 		}
+		// I imagine that drawing white triangles on a black canvas.
 		StdDraw.setPenColor(StdDraw.WHITE);
 		double[] x = {llx+size/4, llx+size/2, llx+(size*3)/4};
 		double[] y = {lly+size/2, lly, lly+size/2};
