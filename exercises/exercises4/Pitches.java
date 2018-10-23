@@ -18,8 +18,6 @@ public class Pitches {
 //		System.out.println("freqency 7 is: " + pitch2);
 		double ratio = frequency2/frequency1;
 		System.out.println("ratio is: " + ratio);
-		
-
 	}
 
 }

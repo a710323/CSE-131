@@ -5,7 +5,7 @@ import sedgewick.StdDraw;
 public class Triangles {
 	
 	public static void triangle(double llx,double lly,double size) {
-		if(size<0.01) {
+		if(size<0.001) {
 			return;
 		}
 		// I imagine that drawing white triangles on a black canvas.
@@ -13,9 +13,9 @@ public class Triangles {
 		double[] x = {llx+size/4, llx+size/2, llx+(size*3)/4};
 		double[] y = {lly+size/2, lly, lly+size/2};
 		StdDraw.filledPolygon(x, y);
-		triangle(llx, lly, size/2);//left
-		triangle(llx+size/2, lly,size/2);//right
-		triangle(llx+size/4, lly+size/2, size/2);
+		triangle(llx, lly, size/2);//left triangle
+		triangle(llx+size/2, lly,size/2);//right triangle
+		triangle(llx+size/4, lly+size/2, size/2);//upper triangle
 	}
 
 	public static void main(String[] args) {

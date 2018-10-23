@@ -1,4 +1,5 @@
 package instrument;
+
 import cse131.ArgsProcessor;
 import sedgewick.*;
 /*************************************************************************
@@ -32,29 +33,55 @@ import sedgewick.*;
 
 public class PlayThatTune {
 
-    public static void main(String[] args) {
-    	
-    	ArgsProcessor.useStdInput("music");
+	public static void main(String[] args) {
 
-        // repeat as long as there are more integers to read in
-        while (!StdIn.isEmpty()) {
+		ArgsProcessor.useStdInput("music");
+		ArgsProcessor ap = new ArgsProcessor(args);
+		int simulation = ap.nextInt("How many simulation");
+		int j=0;
+		int[] numArr = new int[simulation];
+		int[] denoArr = new int[simulation];
+		double[] steArr = new double[simulation];
+		double pitchArr = 0;
+		double strengthArr = 0;
 
-            // read in the pitch, where 0 = Concert A (A4)
-            int pitch = StdIn.readInt();
+		while(j<simulation) {
+			int numerator = ap.nextInt("Enter pitch for numerator");
+			numArr[j] = numerator;
+			int denominator = ap.nextInt("Enter fundamental pitch");
+			denoArr[j] = denominator;
+			double strength = ap.nextDouble("Enter relative strength");
+			steArr[j] = strength;
+			j++;
+		}
+		for(int k = 0; k<simulation; k++) {
+			pitchArr = pitchArr + Math.pow(numArr[k], 2)/Math.pow(denoArr[k], 2);
+		}
+		
+		for(int k = 0; k< simulation; k++) {
+			strengthArr = strengthArr + steArr[k];
+		}
+		
+		
+		// repeat as long as there are more integers to read in
+		while (!StdIn.isEmpty()) {
 
-            // read in duration in seconds
-            double duration = StdIn.readDouble();
+			// read in the pitch, where 0 = Concert A (A4)
+			int pitch = StdIn.readInt();
 
-            // build sine wave with desired frequency
-            double hz = 440 * Math.pow(2, pitch / 12.0);
-            int N = (int) (StdAudio.SAMPLE_RATE * duration);
-            double[] a = new double[N+1];
-            for (int i = 0; i <= N; i++) {
-                a[i] = Math.sin(2 * Math.PI * i * hz / StdAudio.SAMPLE_RATE);
-            }
+			// read in duration in seconds
+			double duration = StdIn.readDouble();
 
-            // play it using standard audio
-            StdAudio.play(a);
-        }
-    }
+			// build sine wave with desired frequency
+			double hz = 440 * Math.pow(2, pitch / 12.0);
+			int N = (int) (StdAudio.SAMPLE_RATE * duration);
+			double[] a = new double[N+1];
+			for (int i = 0; i <= N; i++) {
+				a[i] = (strengthArr)*Math.sin(2 * Math.PI * i * hz *(pitchArr/simulation)  / StdAudio.SAMPLE_RATE);
+			}
+
+			// play it using standard audio
+			StdAudio.play(a);
+		}
+	}
 }
