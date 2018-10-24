@@ -5,7 +5,7 @@ import sedgewick.StdDraw;
 public class Triangles {
 	
 	public static void triangle(double llx,double lly,double size) {
-		if(size<0.001) {
+		if(size<0.01) {
 			return;
 		}
 		// I imagine that drawing white triangles on a black canvas.

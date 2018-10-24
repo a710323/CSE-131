@@ -21,9 +21,79 @@ public class PersianRug {
 			double llx, double lly,
 			double size, 
 			int north, int east, int south, int west) {
-		//
-		// FIXME Your code goes here
-		//
+		if (size < 0.001) {
+			return;
+		}
+//		//bottom line
+//		StdDraw.setPenColor(palette[south]);
+//		StdDraw.line(llx, lly, llx+size, lly);
+//		//right line
+//		StdDraw.setPenColor(palette[east]);
+//		StdDraw.line(llx+size, lly, llx+size, lly+size);
+//		//upper line
+//		StdDraw.setPenColor(palette[north]);
+//		StdDraw.line(llx+size, lly+size, llx, lly+size);
+//		//left line
+//		StdDraw.setPenColor(palette[west]);
+//		StdDraw.line(llx, lly+size, llx, lly);
+		
+		
+		StdDraw.setPenColor(palette[choiceOfColor(north, east, south, west)]);
+		StdDraw.line(llx + size/2, lly, llx+size/2, lly+size);
+		StdDraw.line(llx, lly + size/2, llx+size, lly+size/2);
+		//lowerleft
+		persianRug( palette, llx, lly, size/2, choiceOfColor(north, east, south, west), 
+				choiceOfColor(north, east, south, west), south, west);
+		//lowerright
+		persianRug(palette, llx + size/2, lly, size/2, choiceOfColor(north, east, south, west), 
+				east, south, choiceOfColor(north, east, south, west));
+		//upperleft
+		persianRug(palette, llx, lly+size/2, size/2, north, choiceOfColor(north, east, south, west), 
+				choiceOfColor(north, east, south, west), west);
+		//upperright
+		persianRug(palette, llx + size/2, lly + size/2, size/2, north, east, choiceOfColor(north, east, south, west), 
+				choiceOfColor(north, east, south, west));
+	}
+	
+	public static int choiceOfColor(int north, int east, int south, int west) {
+		int ans = 0;
+		if((north+east+south+west) % 12 == 0) {
+			ans = 1;
+		}
+		if((north+east+south+west) % 12 == 1) {
+			ans = 2;
+		}
+		if((north+east+south+west) % 12 == 2) {
+			ans = 3;
+		}
+		if((north+east+south+west) % 12 == 3) {
+			ans = 4;
+		}
+		if((north+east+south+west) % 12 == 4) {
+			ans = 5;
+		}
+		if((north+east+south+west) % 12 == 5) {
+			ans = 6;
+		}
+		if((north+east+south+west) % 12 == 6) {
+			ans = 7;
+		}
+		if((north+east+south+west) % 12 == 7) {
+			ans = 8;
+		}
+		if((north+east+south+west) % 12 == 8) {
+			ans = 9;
+		}
+		if((north+east+south+west) % 12 == 9) {
+			ans = 10;
+		}
+		if((north+east+south+west) % 12 == 10) {
+			ans = 11;
+		}
+		if((north+east+south+west) % 12 == 11) {
+			ans = 0;
+		}
+		return ans;
 	}
 
 	public static void main(String args[]) {
@@ -38,7 +108,7 @@ public class PersianRug {
 		//
 		//  Here is the line to uncomment:
 		//
-		//  StdDraw.show(10);   // don't forget to uncomment the other line at the end
+		  StdDraw.show(10);   // don't forget to uncomment the other line at the end
 		//
 		
 		
@@ -65,12 +135,12 @@ public class PersianRug {
 		// Size of the square is 1
 		// The color index of each surrounding side is 0
 		//
-		persianRug(palette, 0, 0, 1, 0, 0, 0, 0);
+		persianRug(palette, 0, 0, 1, 4, 10, 3, 9);
 		//
 		// Also uncomment this line when you have things working
 		//   to speed up the drawing:
 		//
-		// StdDraw.show(10);
+		 StdDraw.show(10);
 		//
 	}
 

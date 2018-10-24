@@ -164,7 +164,7 @@ public class MergeSort {
 		// handle the 0 array length case here, so the recursive
 		// createSortedArrayInRange need not worry about it.
 		if (array.length > 0) {
-			return createSortedArrayInRange2(array, 0, array.length);
+			return createSortedArrayInRange(array, 0, array.length);
 		} else {
 			return new String[0];
 		}
