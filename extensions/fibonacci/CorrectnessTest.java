@@ -17,6 +17,7 @@ public class CorrectnessTest {
 			assertEquals(fibNums[a], Fibonacci.recursive(a));
 			assertEquals(fibNums[a], Fibonacci.iterative(a));
 		}
+		
 	}
 
 }
