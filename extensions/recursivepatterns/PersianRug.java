@@ -21,7 +21,7 @@ public class PersianRug {
 			double llx, double lly,
 			double size, 
 			int north, int east, int south, int west) {
-		if (size < 0.0005) {
+		if (size < 0.001) {
 			return;
 		}
 		StdDraw.setPenColor(palette[choiceOfColor(north, east, south, west)]);
@@ -43,7 +43,7 @@ public class PersianRug {
 	
 	public static int choiceOfColor(int north, int east, int south, int west) {
 		int ans = 0;
-		int randomNum = 4;
+		int randomNum = 2;
 		if((north+east+south+west) % 12 == 0) {
 			ans = randomNum % 12;
 		}
@@ -122,7 +122,7 @@ public class PersianRug {
 		// Size of the square is 1
 		// The color index of each surrounding side is 0
 		//
-		persianRug(palette, 0, 0, 1, 0, 0, 0, 0);
+		persianRug(palette, 0, 0, 1, 4,4,5,4);
 		//
 		// Also uncomment this line when you have things working
 		//   to speed up the drawing:
