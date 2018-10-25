@@ -43,7 +43,7 @@ public class PersianRug {
 	
 	public static int choiceOfColor(int north, int east, int south, int west) {
 		int ans = 0;
-		int randomNum = 2;
+		int randomNum = 5;
 		if((north+east+south+west) % 12 == 0) {
 			ans = randomNum % 12;
 		}
