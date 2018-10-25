@@ -17,4 +17,12 @@ public class UnitTestUtils {
 	public static TestRule createTimeoutRule() {
 		return createTimeoutRule(1L);
 	}
+
+	public static double reasonableEpsilon() {
+		return 0.00000001;
+	}
+
+	public static double reasonableRelativeEpsilon(double expected) {
+		return Math.abs(reasonableEpsilon() * expected);
+	}
 }
