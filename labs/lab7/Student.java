@@ -20,7 +20,7 @@ public class Student {
 		this.bearBucks = 0;
 		this.gpa = Double.NaN;
 	}
-	
+
 	public String getLastName() {
 		return this.lastName;
 	}
@@ -40,23 +40,20 @@ public class Student {
 		return id;
 	}
 	public void submitGrade(double grade, int credits) {
+		if (grade > 4.0 || grade < 0) {
+			return;
+		}
 		double tempGPA = (grade * credits + this.point*this.attemptedCredit)
 				/(this.attemptedCredit+credits);
 		this.point = tempGPA;
 		this.gpa = tempGPA;
-		if (grade > 4.0 || grade < 0) {
-			return;
+		if (grade < 1.7) {
+			this.attemptedCredit += credits;
+			this.passingCredit += 0;
 		}
 		else {
-			if (grade < 1.7) {
-				this.attemptedCredit += credits;
-				this.passingCredit += 0;
-			}
-			else {
-				this.attemptedCredit += credits;
-				this.passingCredit += credits;
-			}
-			
+			this.attemptedCredit += credits;
+			this.passingCredit += credits;
 		}
 	}
 	public int getTotalAttemptedCredits() {
@@ -95,18 +92,6 @@ public class Student {
 		}
 		return false;
 	}
-	
-	public static void main(String[] args) {
-		Student Alex = new Student("Alex", "Teng", 1);
-		Alex.submitGrade(3.0, 3);
-		double x = Alex.calculateGradePointAverage();
-
-		Alex.submitGrade(3.9, 4);
-		double y = Alex.calculateGradePointAverage();
-		System.out.println(x);
-		System.out.println(y);
-	}
-	
 	public void depositBearBucks(double amount) {
 		this.bearBucks += amount;
 	}
@@ -125,7 +110,7 @@ public class Student {
 			double ans = this.bearBucks - 10;
 			this.bearBucks = 0;
 			return ans;
-			
+
 		}
 	}
 	public String concatLastName(Student otherParent, boolean isHyphenated) {
@@ -136,7 +121,6 @@ public class Student {
 			return this.lastName;
 		}
 	}
-	
 	public Student createLegacy(String firstName, Student otherParent, boolean isHyphenated, int id) {
 		Student child = new Student(firstName, concatLastName(otherParent, isHyphenated), id);
 		child.bearBucks = this.cashOutBearBucks() + otherParent.cashOutBearBucks();
@@ -145,6 +129,4 @@ public class Student {
 	public String toString() {
 		return this.getFullName() + " " + this.id;
 	}
-	
-	
 }
