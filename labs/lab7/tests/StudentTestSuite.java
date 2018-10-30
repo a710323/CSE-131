@@ -9,6 +9,7 @@ import lab7.tests.student.StudentConstructorTest;
 import lab7.tests.student.StudentFullNameTest;
 import lab7.tests.student.StudentGradeAndCreditTotalFieldsTest;
 import lab7.tests.student.StudentGradePointAverageEdgeCaseTest;
+import lab7.tests.student.StudentGradePointAverageTest;
 import lab7.tests.student.StudentIdTest;
 import lab7.tests.student.StudentLegacyBearBucksTest;
 import lab7.tests.student.StudentLegacyNameTest;
@@ -22,9 +23,9 @@ import lab7.tests.student.StudentToStringTest;
  */
 @RunWith(Suite.class)
 @Suite.SuiteClasses({ StudentConstructorTest.class, StudentFullNameTest.class, StudentIdTest.class,
-		StudentGradeAndCreditTotalFieldsTest.class, StudentGradePointAverageEdgeCaseTest.class,
-		StudentStandingTest.class, StudentPhiBetaKappaTest.class, StudentBearBucksFieldTest.class,
-		StudentBearBucksTest.class, StudentLegacyNameTest.class, StudentLegacyBearBucksTest.class,
-		StudentToStringIsOverriddenTest.class, StudentToStringTest.class })
+		StudentGradeAndCreditTotalFieldsTest.class, StudentGradePointAverageTest.class,
+		StudentGradePointAverageEdgeCaseTest.class, StudentStandingTest.class, StudentPhiBetaKappaTest.class,
+		StudentBearBucksFieldTest.class, StudentBearBucksTest.class, StudentLegacyNameTest.class,
+		StudentLegacyBearBucksTest.class, StudentToStringIsOverriddenTest.class, StudentToStringTest.class })
 public class StudentTestSuite {
 }
