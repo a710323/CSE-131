@@ -20,7 +20,6 @@ public class Student {
 		this.bearBucks = 0;
 		this.gpa = Double.NaN;
 	}
-
 	public String getLastName() {
 		return this.lastName;
 	}
@@ -32,7 +31,6 @@ public class Student {
 		}
 		return false;
 	}
-
 	public String getFullName() {
 		return firstName + " " + lastName;
 	}
@@ -110,18 +108,19 @@ public class Student {
 			double ans = this.bearBucks - 10;
 			this.bearBucks = 0;
 			return ans;
-
 		}
 	}
 	public String concatLastName(Student otherParent, boolean isHyphenated) {
 		if (isHyphenated == true) {
-			return this.lastName+"-"+otherParent.lastName;
+			return this.lastName + "-" + otherParent.lastName;
 		}
 		else {
 			return this.lastName;
 		}
 	}
-	public Student createLegacy(String firstName, Student otherParent, boolean isHyphenated, int id) {
+	public Student createLegacy(String firstName, Student otherParent, 
+			boolean isHyphenated, int id) 
+	{
 		Student child = new Student(firstName, concatLastName(otherParent, isHyphenated), id);
 		child.bearBucks = this.cashOutBearBucks() + otherParent.cashOutBearBucks();
 		return child;

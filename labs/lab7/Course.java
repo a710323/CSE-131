@@ -6,7 +6,6 @@ public class Course {
 	private int capacity;
 	private int numSeats;
 	private Student[] roster;
-
 	public Course(String name, int credits, int seats) {
 		this.name = name;
 		this.credits = credits;
@@ -33,7 +32,7 @@ public class Course {
 		for (int i = 0; i < this.roster.length; i++) {
 			if (this.roster[i] == null) {
 				this.roster[i] = s;
-				this.numSeats = this.numSeats - 1;
+				this.numSeats--;
 				return true;
 			}
 			if (this.roster[i].compare(s)) {
