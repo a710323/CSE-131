@@ -10,15 +10,11 @@ public class SubsetSum {
 	 */
 	public static int[] findSubset(int[] allnums, int sum) {
 		int[] solution = new int[7];	
-		int[] copy = new int[allnums.length];
-		for(int i = 0; i < allnums.length; i++) {
-			copy[i] = allnums[i];
-		}
 		while (sumSol(solution) != sum) {
 			for (int i = 0; i < 7; i++) {
-				int a = (int)(Math.random() * (copy.length - i));
-				solution[i] = copy[a];
-				swapValue(copy, a, copy.length - (i+1));
+				int a = (int)(Math.random() * (allnums.length - i));
+				solution[i] = allnums[a];
+				swapValue(allnums, a, allnums.length - (i+1));
 			}
 		}
 		return solution;
