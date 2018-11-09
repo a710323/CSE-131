@@ -68,7 +68,7 @@ public class BonusMethods {
 			}
 
 		}
-		return (int)ans;
+		return ans;
 	}
 
 }

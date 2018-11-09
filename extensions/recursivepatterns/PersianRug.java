@@ -43,7 +43,7 @@ public class PersianRug {
 	
 	public static int choiceOfColor(int north, int east, int south, int west) {
 		int ans = 0;
-		int randomNum = 5;
+		int randomNum = 10;
 		if((north+east+south+west) % 12 == 0) {
 			ans = randomNum % 12;
 		}
@@ -95,7 +95,7 @@ public class PersianRug {
 		//
 		//  Here is the line to uncomment:
 		//
-		StdDraw.show(10);   // don't forget to uncomment the other line at the end
+		StdDraw.show(0);   // don't forget to uncomment the other line at the end
 		//
 		
 		
@@ -122,12 +122,12 @@ public class PersianRug {
 		// Size of the square is 1
 		// The color index of each surrounding side is 0
 		//
-		persianRug(palette, 0, 0, 1, 4,4,5,4);
+		persianRug(palette, 0, 0, 1, 0,0,0,0);
 		//
 		// Also uncomment this line when you have things working
 		//   to speed up the drawing:
 		//
-		StdDraw.show(10);
+		StdDraw.show(0);
 		//
 	}
 

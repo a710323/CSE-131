@@ -31,9 +31,9 @@ public class MouseFollower {
 			if (cur >= X.length) {
 				cur = 0;
 			}
-			int history = cur;
+//			int history = cur;
 					
-			StdDraw.filledCircle(X[history], Y[history], 0.02);
+			StdDraw.filledCircle(X[cur], Y[cur], 0.02);
 
 
 			//  
@@ -41,7 +41,7 @@ public class MouseFollower {
 			//
 			// Stdraw.show(..) achieves double buffering and
 			//   avoids the tight spinning loop
-			StdDraw.show(10);
+			StdDraw.show(0);
 		}
 
 	}

@@ -52,9 +52,9 @@ public class GraphPaper {
 		//   calls below to StdDraw.show
 		//   and that will speed up what you see greatly
 		//
-		// StdDraw.show(10);  // don't show anything
+		StdDraw.show(10);  // don't show anything
 		gp(0, 0, 1);
-		// StdDraw.show(10);  // until now
+		StdDraw.show(10);  // until now
 	}
 
 }
