@@ -15,38 +15,12 @@ public class SubsetSum {
 			copy[i] = allnums[i];
 		}
 		while (sumSol(solution) != sum) {
-
-
 			for (int i = 0; i < 7; i++) {
 				int a = (int)(Math.random() * (copy.length - i));
 				solution[i] = copy[a];
 				swapValue(copy, a, copy.length - (i+1));
 			}
 		}
-//		while (sumSol(solution) != sum) {
-//			int a = (int) (Math.random()*copy.length);
-//			solution[0] = copy[a];
-//			swapValue(copy, a, copy.length-1);
-//			int b = (int) (Math.random()*(copy.length-1));
-//			solution[1] = copy[b];
-//			swapValue(copy, b, copy.length-2);
-//			int c = (int) (Math.random()*(copy.length-2));
-//			solution[2] = copy[c];
-//			swapValue(copy, c, copy.length-3);
-//			int d = (int) (Math.random()*(copy.length-3));
-//			solution[3] = copy[d];
-//			swapValue(copy, d, copy.length-4);
-//			int e = (int) (Math.random()*(copy.length-4));
-//			solution[4] = copy[e];
-//			swapValue(copy, e, copy.length-5);
-//			int f = (int) (Math.random()*(copy.length-5));
-//			solution[5] = copy[f];
-//			swapValue(copy, f, copy.length-6);
-//			int g = (int) (Math.random()*(copy.length-6));
-//			solution[6] = copy[g];
-//			swapValue(copy, g, copy.length-7);
-//		}
-
 		return solution;
 	}
 
