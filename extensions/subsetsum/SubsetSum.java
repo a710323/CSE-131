@@ -1,5 +1,7 @@
 package subsetsum;
 
+import java.math.BigInteger;
+
 public class SubsetSum {
 
 	/**
@@ -10,18 +12,45 @@ public class SubsetSum {
 	 */
 	public static int[] findSubset(int[] allnums, int sum) {
 		int[] solution = new int[7];	
-		int[] copy = new int[allnums.length];
-		for(int i = 0; i < allnums.length; i++) {
-			copy[i] = allnums[i];
-		}
 		while (sumSol(solution) != sum) {
 			for (int i = 0; i < 7; i++) {
-				int a = (int)(Math.random() * (copy.length - i));
-				solution[i] = copy[a];
-				swapValue(copy, a, copy.length - (i+1));
+				int a = (int)(Math.random() * (allnums.length - i));
+				solution[i] = allnums[a];
+				swapValue(allnums, a, allnums.length - (i+1));
 			}
 		}
 		return solution;
+	}
+
+	public static BigInteger factorial(BigInteger a) {
+		if (a.equals(BigInteger.ONE)) {
+			return BigInteger.ONE;
+		}
+		return a.multiply(factorial(a.subtract(BigInteger.ONE)));
+	}
+
+	public static int[] findSubset2(int[] allnums, int sum) {
+		int[] solution = new int[0];
+		for(int i = 1; i < allnums.length; i++) {
+			BigInteger count = BigInteger.ZERO;
+			BigInteger totalCount = factorial(BigInteger.valueOf(allnums.length)).
+					divide(factorial(BigInteger.valueOf(i))).
+					divide(factorial(BigInteger.valueOf(allnums.length).
+							subtract(BigInteger.valueOf(i))));
+			solution = new int[i];
+			while (sumSol(solution) != sum && count.compareTo(totalCount) <= 0) {
+				for (int j = 0; j < i; j++) {
+					int a = (int)(Math.random() * (allnums.length - j));
+					solution[j] = allnums[a];
+					swapValue(allnums, a, allnums.length - (j+1));
+				}
+				count.add(BigInteger.ONE);
+			}
+			if (sumSol(solution) != sum) {
+				return solution;
+			}
+		}
+		return null;
 	}
 
 	public static int sumSol(int[] array) {
