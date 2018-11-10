@@ -28,6 +28,7 @@ public class SubsetSum {
 		}
 		return a.multiply(factorial(a.subtract(BigInteger.ONE)));
 	}
+	
 
 	public static int[] findSubset2(int[] allnums, int sum) {
 		int[] solution = new int[0];
