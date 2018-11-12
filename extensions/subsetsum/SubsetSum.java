@@ -1,6 +1,8 @@
 package subsetsum;
 
 import java.math.BigInteger;
+import java.util.HashSet;
+import java.util.Set;
 
 public class SubsetSum {
 
@@ -30,9 +32,10 @@ public class SubsetSum {
 		return q;
 	}
 
-	
+
 	public static int[] findSubset(int[] allnums, int sum) {
 		int[] solution = new int[0];
+		Set<int[]> mySet = new HashSet<int[]>();
 		for(int i = 1; i < allnums.length; i++) {
 			BigInteger count = new BigInteger("0");
 			BigInteger totalCount = factorial(new BigInteger(allnums.length+"")).
@@ -41,12 +44,13 @@ public class SubsetSum {
 							subtract(new BigInteger(i+"")));
 			solution = new int[i];
 			while (sumSol(solution) != sum && count.compareTo(totalCount) <= 0) {
-				for (int j = 0; j < i; j++) {
+				int j = 0;
+				while (j<i && mySet.add(solution)) {
 					int a = (int)(Math.random() * (allnums.length - j));
 					solution[j] = allnums[a];
 					swapValue(allnums, a, allnums.length - (j+1));
+					j++;
 				}
-				count.add(BigInteger.ONE);
 			}
 			if (sumSol(solution) == sum) {
 				return solution;
