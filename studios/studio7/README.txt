@@ -1,0 +1,1 @@
+Feel free to delete this file after creating at least one class in this package.
