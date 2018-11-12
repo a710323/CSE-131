@@ -10,7 +10,7 @@ public class SubsetSum {
 	 * @param sum the provided sum
 	 * @return the subset of allnums that add up to sum
 	 */
-	public static int[] findSubset(int[] allnums, int sum) {
+	public static int[] findSubset2(int[] allnums, int sum) {
 		int[] solution = new int[7];	
 		while (sumSol(solution) != sum) {
 			for (int i = 0; i < 7; i++) {
@@ -23,21 +23,21 @@ public class SubsetSum {
 	}
 
 	public static BigInteger factorial(BigInteger a) {
-		if (a.equals(BigInteger.ONE)) {
-			return BigInteger.ONE;
+		BigInteger q = new BigInteger("1");
+		for(int i = 1; a.compareTo(BigInteger.valueOf(i)) >= 0; i++) {
+			q = q.multiply(new BigInteger(i + ""));
 		}
-		return a.multiply(factorial(a.subtract(BigInteger.ONE)));
+		return q;
 	}
-	
 
-	public static int[] findSubset2(int[] allnums, int sum) {
+	public static int[] findSubset(int[] allnums, int sum) {
 		int[] solution = new int[0];
 		for(int i = 1; i < allnums.length; i++) {
-			BigInteger count = BigInteger.ZERO;
-			BigInteger totalCount = factorial(BigInteger.valueOf(allnums.length)).
-					divide(factorial(BigInteger.valueOf(i))).
-					divide(factorial(BigInteger.valueOf(allnums.length).
-							subtract(BigInteger.valueOf(i))));
+			BigInteger count = new BigInteger("0");
+			BigInteger totalCount = factorial(new BigInteger(allnums.length+"")).
+					divide(factorial(new BigInteger(i +""))).
+					divide(factorial(new BigInteger(allnums.length +"")).
+							subtract(new BigInteger(i+"")));
 			solution = new int[i];
 			while (sumSol(solution) != sum && count.compareTo(totalCount) <= 0) {
 				for (int j = 0; j < i; j++) {
@@ -47,7 +47,7 @@ public class SubsetSum {
 				}
 				count.add(BigInteger.ONE);
 			}
-			if (sumSol(solution) != sum) {
+			if (sumSol(solution) == sum) {
 				return solution;
 			}
 		}
@@ -66,5 +66,9 @@ public class SubsetSum {
 		array[index] = array[index2];
 		array[index2] = temp;
 	}
-
+	public static void main(String[] args) {
+		BigInteger a = new BigInteger("70000");
+		BigInteger w = factorial(a);
+		System.out.println(w);
+	}
 }
