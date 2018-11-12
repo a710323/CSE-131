@@ -2,6 +2,7 @@ package subsetsum;
 
 import java.math.BigInteger;
 import java.util.HashSet;
+import java.util.Iterator;
 import java.util.Set;
 
 public class SubsetSum {
@@ -27,30 +28,75 @@ public class SubsetSum {
 	public static BigInteger factorial(BigInteger a) {
 		BigInteger q = new BigInteger("1");
 		for(int i = 1; a.compareTo(BigInteger.valueOf(i)) >= 0; i++) {
-			q = q.multiply(new BigInteger(i + ""));
+			q = q.multiply(new BigInteger(i+""));
 		}
 		return q;
 	}
 
+	public static Set<Integer> findSubset3(int[] allnums, int sum){
+		Set<Set<Integer>> mySet = new HashSet<>();
+		Set<Integer> solution = new HashSet<>();
+		for (int i = 1; i < allnums.length; i++) {
+			BigInteger count = new BigInteger(0+"");
+			BigInteger totalCount = factorial(new BigInteger(allnums.length+"")).
+					divide(factorial(new BigInteger(i+""))).
+					divide(factorial(new BigInteger(allnums.length-i +"")));
+			while (sumSol2(solution) != sum && count.compareTo(totalCount) < 0) {
+				for (int j = 0; j < i; j++) {
+					int a = (int) (Math.random() * (allnums.length - j));
+					solution.add(allnums[a]);
+					swapValue(allnums, a, allnums.length - (j+1));
+				}
+				while (!mySet.add(solution)) {
+					for (int j = 0; j < i; j++) {
+						int a = (int) (Math.random() * (allnums.length - j));
+						solution.add(allnums[a]);
+						swapValue(allnums, a, allnums.length - (j+1));
+					}
+				}
+				count.add(new BigInteger(1+""));
+				solution.clear();
+			}
+			if (sumSol2(solution) == sum) {
+				return solution;
+			}
+		}
+		return null;
+	}
+
+	public static int sumSol2(Set<Integer> solution) {
+		int sum = 0;
+		Iterator<Integer> itr = solution.iterator();
+		while (itr.hasNext()) {
+			sum += itr.next();
+		}
+		return sum;
+	}
 
 	public static int[] findSubset(int[] allnums, int sum) {
 		int[] solution = new int[0];
 		Set<int[]> mySet = new HashSet<int[]>();
 		for(int i = 1; i < allnums.length; i++) {
-			BigInteger count = new BigInteger("0");
+			BigInteger count = new BigInteger(0+"");
 			BigInteger totalCount = factorial(new BigInteger(allnums.length+"")).
 					divide(factorial(new BigInteger(i +""))).
 					divide(factorial(new BigInteger(allnums.length +"")).
 							subtract(new BigInteger(i+"")));
 			solution = new int[i];
-			while (sumSol(solution) != sum && count.compareTo(totalCount) <= 0) {
-				int j = 0;
-				while (j<i && mySet.add(solution)) {
+			while (sumSol(solution) != sum && count.compareTo(totalCount) < 0) {
+				for(int j = 0; j < i; j++) {
 					int a = (int)(Math.random() * (allnums.length - j));
 					solution[j] = allnums[a];
 					swapValue(allnums, a, allnums.length - (j+1));
-					j++;
 				}
+				while(!mySet.add(solution)) {
+					for(int j = 0; j < i; j++) {
+						int a = (int)(Math.random() * (allnums.length - j));
+						solution[j] = allnums[a];
+						swapValue(allnums, a, allnums.length - (j+1));
+					}
+				}
+				count.add(new BigInteger(1+""));
 			}
 			if (sumSol(solution) == sum) {
 				return solution;
@@ -72,8 +118,13 @@ public class SubsetSum {
 		array[index2] = temp;
 	}
 	public static void main(String[] args) {
-		BigInteger a = new BigInteger("70000");
-		BigInteger w = factorial(a);
-		System.out.println(w);
+		Set<Integer> test = new HashSet<>();
+		test.add(2);
+		test.add(3);
+		test.add(1);
+		int a = sumSol2(test);
+		System.out.println(a);
+//		BigInteger w = factorial(new BigInteger(70000+""));
+//		System.out.println(w);
 	}
 }

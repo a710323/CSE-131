@@ -20,7 +20,7 @@ public class MergeSort {
 		// if you would prefer to use your implementation from the previous studio,
 		// then change the line below to read:
 		// final boolean IS_USE_OF_STUDIO_DESIRED = true;
-		final boolean IS_USE_OF_STUDIO_DESIRED = false;
+		final boolean IS_USE_OF_STUDIO_DESIRED = true;
 		if (IS_USE_OF_STUDIO_DESIRED) {
 			return MergeCombiner.createMergeCombinedArray(a, b);
 		} else {
