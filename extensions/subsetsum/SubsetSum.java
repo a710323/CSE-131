@@ -30,6 +30,7 @@ public class SubsetSum {
 		return q;
 	}
 
+	
 	public static int[] findSubset(int[] allnums, int sum) {
 		int[] solution = new int[0];
 		for(int i = 1; i < allnums.length; i++) {
