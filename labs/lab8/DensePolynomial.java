@@ -18,14 +18,7 @@ public class DensePolynomial implements Polynomial{
 	public Polynomial addTerm(double coefficient, int degree) {
 		double[] arr = this.myDouble;
 		double[] temp = new double[0];
-		//		if (coefficient == 0) {
-		//			temp = CoefficientArrayUtils.createNextCoefficients(coefficient, degree, temp);
-		//			Polynomial d = new DensePolynomial(temp);
-		//			return d;
-		//		}
-		//		else {
 		temp = CoefficientArrayUtils.createNextCoefficients(coefficient, degree, arr);
-		//		}
 		Polynomial d = new DensePolynomial(temp);
 		return d;
 	}
