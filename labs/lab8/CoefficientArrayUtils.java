@@ -75,6 +75,7 @@ public class CoefficientArrayUtils {
 	 * @return a new double array that represents a dense polynomial which is the
 	 *         result of adding coefficient*x^degree to the prevCoefficients array.
 	 */
+	
 	public static double[] createNextCoefficients(double coefficient, int degree, double[] prevCoefficients) {
 		if(prevCoefficients.length  < calculateArrayLengthRequiredFor(degree) ) {
 			if (coefficient == 0) {

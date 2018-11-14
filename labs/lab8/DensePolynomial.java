@@ -82,7 +82,7 @@ public class DensePolynomial implements Polynomial{
 		Polynomial d = new DensePolynomial(arr);
 		return d;
 	}
-
+	
 	@Override
 	public String toString() {
 		String ans = "";
