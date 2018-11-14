@@ -17,47 +17,87 @@ public class DensePolynomial implements Polynomial{
 	@Override
 	public Polynomial addTerm(double coefficient, int degree) {
 		double[] arr = this.myDouble;
-		double[] temp = new double[arr.length];
-		if (coefficient == 0) {
-			temp = new double[1];
-			temp[0] = coefficient;
-		}
-		else {
-			temp = Arrays.copyOf(arr, degree+1);
-			temp[degree] = coefficient;
-		}
+		double[] temp = new double[0];
+		//		if (coefficient == 0) {
+		//			temp = CoefficientArrayUtils.createNextCoefficients(coefficient, degree, temp);
+		//			Polynomial d = new DensePolynomial(temp);
+		//			return d;
+		//		}
+		//		else {
+		temp = CoefficientArrayUtils.createNextCoefficients(coefficient, degree, arr);
+		//		}
 		Polynomial d = new DensePolynomial(temp);
 		return d;
 	}
 
 	@Override
 	public int degree() {
-		// TODO Auto-generated method stub
-		return 0;
+		return this.myDouble.length-1;
 	}
 
 	@Override
 	public double getCoefficientAtDegree(int degree) {
-		// TODO Auto-generated method stub
-		return 0;
+		if(degree < this.myDouble.length) {
+			return this.myDouble[degree];
+		}
+		else {
+			return 0.0;
+		}
 	}
 
 	@Override
 	public double evaluate(double x) {
-		// TODO Auto-generated method stub
-		return 0;
+		double sum = 0;
+		for (int i = 0; i < this.myDouble.length; i++) {
+			sum += getCoefficientAtDegree(i) * Math.pow(x, i);
+		}
+		return sum;
 	}
 
 	@Override
 	public Polynomial derivative() {
-		// TODO Auto-generated method stub
-		return null;
+		if(this.myDouble.length == 1) {
+			double[] arr = new double[1];
+			arr[0] = 0.0;
+			Polynomial d = new DensePolynomial(arr);
+			return d;
+		}
+		double[] arr = new double[this.myDouble.length-1];
+		for(int i = 1; i < this.myDouble.length; i++) {
+			arr[i-1] = getCoefficientAtDegree(i) * i;
+		}
+		Polynomial d = new DensePolynomial(arr);
+		return d;
 	}
 
 	@Override
 	public Polynomial sum(Polynomial other) {
-		// TODO Auto-generated method stub
-		return null;
+		double[] arr = new double[Math.max(this.myDouble.length, other.degree()+1)];
+		for (int i = 0; i < Integer.min(this.myDouble.length, other.degree()+1); i++) {
+			arr[i] = this.myDouble[i] + other.getCoefficientAtDegree(i);
+		}
+		if (this.myDouble.length > other.degree() +1) {
+			for (int i = other.degree()+1; i < this.myDouble.length; i++) {
+				arr[i] = this.myDouble[i];
+			}
+		}
+		if (other.degree() + 1 > this.myDouble.length) {
+			for (int i = this.myDouble.length; i < other.degree()+1; i++) {
+				arr[i] = other.getCoefficientAtDegree(i);
+			}
+		}
+		Polynomial d = new DensePolynomial(arr);
+		return d;
 	}
 
+	@Override
+	public String toString() {
+		String ans = "";
+		for(int i = 0; i < this.myDouble.length; i++) {
+			ans = ans + getCoefficientAtDegree(i) + "x^" + i;
+		}
+		
+		return ans;
+	}
+	
 }

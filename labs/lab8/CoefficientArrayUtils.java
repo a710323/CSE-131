@@ -77,15 +77,17 @@ public class CoefficientArrayUtils {
 	 */
 	public static double[] createNextCoefficients(double coefficient, int degree, double[] prevCoefficients) {
 		if(prevCoefficients.length  < calculateArrayLengthRequiredFor(degree) ) {
-			double[] answer = new double[calculateArrayLengthRequiredFor(degree)];
-			answer = Arrays.copyOf(prevCoefficients, calculateArrayLengthRequiredFor(degree));
-			answer[degree] = coefficient;
+			if (coefficient == 0) {
+				return prevCoefficients;
+			}
+			//double[] answer = new double[calculateArrayLengthRequiredFor(degree)];
+			double[] answer = Arrays.copyOf(prevCoefficients, calculateArrayLengthRequiredFor(degree));
+			answer[degree] += coefficient;
 			return answer;
 		}
 		else {
-			double[] answer = new double[calculateArrayLengthRequiredFor(prevCoefficients.length)];
-			answer = Arrays.copyOf(prevCoefficients, prevCoefficients.length);
-			answer[degree] += coefficient;
+			double[] answer = Arrays.copyOf(prevCoefficients, prevCoefficients.length);
+			answer[degree] = answer[degree] + coefficient;
 			return answer;
 		}
 	}
