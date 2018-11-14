@@ -17,7 +17,7 @@ public class CoefficientArrayUtils {
 	 *         the specified degree
 	 */
 	public static int calculateArrayLengthRequiredFor(int degree) {
-		throw new NotYetImplementedException("delete this line of code and implement this method.");
+		return degree + 1;
 	}
 
 	/**
@@ -44,7 +44,12 @@ public class CoefficientArrayUtils {
 	 *         the array length of the specified previous coefficients.
 	 */
 	public static int calculateArrayLengthRequiredFor(int degree, double[] prevCoefficients) {
-		throw new NotYetImplementedException("delete this line of code and implement this method.");
+		if (degree < prevCoefficients.length) {
+			return prevCoefficients.length;
+		}
+		else {
+			return calculateArrayLengthRequiredFor(degree);
+		}
 	}
 
 	/**
@@ -71,6 +76,17 @@ public class CoefficientArrayUtils {
 	 *         result of adding coefficient*x^degree to the prevCoefficients array.
 	 */
 	public static double[] createNextCoefficients(double coefficient, int degree, double[] prevCoefficients) {
-		throw new NotYetImplementedException("delete this line of code and implement this method.");
+		if(prevCoefficients.length  < calculateArrayLengthRequiredFor(degree) ) {
+			double[] answer = new double[calculateArrayLengthRequiredFor(degree)];
+			answer = Arrays.copyOf(prevCoefficients, calculateArrayLengthRequiredFor(degree));
+			answer[degree] = coefficient;
+			return answer;
+		}
+		else {
+			double[] answer = new double[calculateArrayLengthRequiredFor(prevCoefficients.length)];
+			answer = Arrays.copyOf(prevCoefficients, prevCoefficients.length);
+			answer[degree] += coefficient;
+			return answer;
+		}
 	}
 }

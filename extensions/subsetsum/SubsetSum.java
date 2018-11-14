@@ -13,7 +13,7 @@ public class SubsetSum {
 	 * @param sum the provided sum
 	 * @return the subset of allnums that add up to sum
 	 */
-	public static int[] findSubset2(int[] allnums, int sum) {
+	public static int[] findSubset(int[] allnums, int sum) {
 		int[] solution = new int[7];	
 		while (sumSol(solution) != sum) {
 			for (int i = 0; i < 7; i++) {
@@ -34,8 +34,8 @@ public class SubsetSum {
 	}
 
 	public static Set<Integer> findSubset3(int[] allnums, int sum){
-		Set<Set<Integer>> mySet = new HashSet<>();
-		Set<Integer> solution = new HashSet<>();
+		Set<Set<Integer>> mySet = new HashSet<Set<Integer>>();
+		Set<Integer> solution = new HashSet<Integer>();
 		for (int i = 1; i < allnums.length; i++) {
 			BigInteger count = new BigInteger(0+"");
 			BigInteger totalCount = factorial(new BigInteger(allnums.length+"")).
@@ -74,7 +74,7 @@ public class SubsetSum {
 		return sum;
 	}
 
-	public static int[] findSubset(int[] allnums, int sum) {
+	public static int[] findSubset6(int[] allnums, int sum) {
 		int[] solution = new int[0];
 		Set<int[]> mySet = new HashSet<int[]>();
 		for(int i = 1; i < allnums.length; i++) {
@@ -119,13 +119,22 @@ public class SubsetSum {
 		array[index2] = temp;
 	}
 	public static void main(String[] args) {
-		Set<Integer> test = new HashSet<>();
-		test.add(2);
-		test.add(3);
-		test.add(1);
-		int a = sumSol2(test);
-		System.out.println(a);
-//		BigInteger w = factorial(new BigInteger(70000+""));
-//		System.out.println(w);
+//		Set<Set<Integer>> mySet = new HashSet<Set<Integer>>();
+//		Set<Integer> test = new HashSet<>();
+//		Set<Integer> test2 = new HashSet<>();
+//		test2.add(3);
+//		test2.add(1);
+//		test2.add(2);
+//		test.add(2);
+//		test.add(3);
+//		test.add(1);
+//		System.out.println(mySet.add(test2));
+//		System.out.println(mySet.add(test));
+//		int a = sumSol2(test);
+//		System.out.println(a);
+		BigInteger w = factorial(new BigInteger(10+""));
+		System.out.println(w);
+		BigInteger x = factorial(new BigInteger(20+""));
+		System.out.println(x);
 	}
 }
