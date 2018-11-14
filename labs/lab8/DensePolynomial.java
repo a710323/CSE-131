@@ -1,5 +1,6 @@
 package lab8;
 
+import java.util.Arrays;
 
 public class DensePolynomial implements Polynomial{
 	private final double[] myDouble;
@@ -15,15 +16,17 @@ public class DensePolynomial implements Polynomial{
 
 	@Override
 	public Polynomial addTerm(double coefficient, int degree) {
-		double[] arr = new double[degree+1];
-		
-		if (coefficient== 0) {
-			arr = new double[1];
+		double[] arr = this.myDouble;
+		double[] temp = new double[arr.length];
+		if (coefficient == 0) {
+			temp = new double[1];
+			temp[0] = coefficient;
 		}
 		else {
-			arr[degree] = coefficient;
+			temp = Arrays.copyOf(arr, degree+1);
+			temp[degree] = coefficient;
 		}
-		Polynomial d = new DensePolynomial(arr);
+		Polynomial d = new DensePolynomial(temp);
 		return d;
 	}
 
