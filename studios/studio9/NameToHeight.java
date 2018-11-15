@@ -19,7 +19,24 @@ public class NameToHeight {
 	 */
 	public static void main(String[] args) {
 		ArgsProcessor ap = new ArgsProcessor(args);
-		
-		throw new NotYetImplementedException("delete this line of code and implement this method.");
+		Map<String, Integer> myMap = new HashMap<>();
+		myMap.put("Reshad", 67);
+		myMap.put("Alex", 67);
+
+		String a = "Reshad";
+		String b = "Alex";
+		String name = "";
+		while (name!= null) {
+			name = ap.nextString("Who are you looking for?");
+			if(!myMap.containsKey(name)) {
+				System.out.println("No such person");
+			}
+			else {
+				int whatTheHeight = myMap.getOrDefault(name, 0);
+				System.out.println(whatTheHeight);
+			}
+		}
+
+
 	}
 }

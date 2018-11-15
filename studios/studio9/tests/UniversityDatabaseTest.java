@@ -62,7 +62,7 @@ public class UniversityDatabaseTest {
 		assertSame(aStudent, map.get(aAccountName));
 
 		assertEquals(1, universityDatabase.getStudentCount());
-		String aFullName = universityDatabase.lookupFullName(aAccountName);
+		String aFullName = universityDatabase.lookUpFullName(aAccountName);
 		assertNotNull(aFullName);
 		assertEquals(aExpectedFullName, aFullName);
 
@@ -77,7 +77,7 @@ public class UniversityDatabaseTest {
 		assertSame(bStudent, map.get(bAccountName));
 
 		assertEquals(2, universityDatabase.getStudentCount());
-		String bFullName = universityDatabase.lookupFullName(bAccountName);
+		String bFullName = universityDatabase.lookUpFullName(bAccountName);
 		assertNotNull(bFullName);
 		assertEquals(bExpectedFullName, bFullName);
 
@@ -87,7 +87,7 @@ public class UniversityDatabaseTest {
 		String nonExistentAccountName = "sidd.finch";
 
 		assertFalse(map.containsKey(nonExistentAccountName));
-		assertNull(universityDatabase.lookupFullName(nonExistentAccountName));
+		assertNull(universityDatabase.lookUpFullName(nonExistentAccountName));
 
 	}
 }
