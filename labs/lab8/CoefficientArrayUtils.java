@@ -91,7 +91,6 @@ public class CoefficientArrayUtils {
 			if (coefficient == 0) {
 				return prevCoefficients;
 			}
-			//double[] answer = new double[calculateArrayLengthRequiredFor(degree)];
 			double[] answer = Arrays.copyOf(prevCoefficients, calculateArrayLengthRequiredFor(degree));
 			answer[degree] += coefficient;
 			return answer;
