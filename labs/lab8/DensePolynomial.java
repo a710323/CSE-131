@@ -95,13 +95,13 @@ public class DensePolynomial implements Polynomial{
 		return d;
 	}
 	
+	// get the coefficients at each degree and + "x^" + degree
 	@Override
 	public String toString() {
 		String ans = "";
 		for(int i = 0; i < this.myDouble.length; i++) {
 			ans = ans + getCoefficientAtDegree(i) + "x^" + i + " ";
 		}
-		
 		return ans;
 	}
 	

@@ -16,6 +16,8 @@ public class CoefficientArrayUtils {
 	 * @return length required for a dense array implementation of a polynomial of
 	 *         the specified degree
 	 */
+	
+	// length should be the maximum degree + 1
 	public static int calculateArrayLengthRequiredFor(int degree) {
 		return degree + 1;
 	}
@@ -43,6 +45,9 @@ public class CoefficientArrayUtils {
 	 * @return the maximum of the array length required for the specified degree and
 	 *         the array length of the specified previous coefficients.
 	 */
+	
+	//if the length of prevCoefficients is larger than degree, return it.
+	// else set the length to degree + 1
 	public static int calculateArrayLengthRequiredFor(int degree, double[] prevCoefficients) {
 		if (degree < prevCoefficients.length) {
 			return prevCoefficients.length;
@@ -76,6 +81,11 @@ public class CoefficientArrayUtils {
 	 *         result of adding coefficient*x^degree to the prevCoefficients array.
 	 */
 	
+	//	If the length of prevCoefficients < degree
+	//	create an array with length of degree + 1 
+	// 	copy all coefficients in prevCoefficients and sum the coefficient with given degree
+	// 	else, simply sum the coefficient with given degree
+	// 	return the new array
 	public static double[] createNextCoefficients(double coefficient, int degree, double[] prevCoefficients) {
 		if(prevCoefficients.length  < calculateArrayLengthRequiredFor(degree) ) {
 			if (coefficient == 0) {
@@ -88,7 +98,7 @@ public class CoefficientArrayUtils {
 		}
 		else {
 			double[] answer = Arrays.copyOf(prevCoefficients, prevCoefficients.length);
-			answer[degree] = answer[degree] + coefficient;
+			answer[degree] += coefficient;
 			return answer;
 		}
 	}
