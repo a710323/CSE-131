@@ -19,14 +19,14 @@ import lab8.CoefficientArrayUtils;
  */
 @RunWith(Parameterized.class)
 public class CoefficientArrayCreateNextCoefficientsComprehensiveTest {
-	private final double[] prevCoefficients;
+	private final double[] originalPrevCoefficients;
 	private final double coefficient;
 	private final int degree;
 	private final double[] expected;
 
 	public CoefficientArrayCreateNextCoefficientsComprehensiveTest(List<Double> prevCoefficients, double coefficient,
 			int degree, List<Double> expected) {
-		this.prevCoefficients = prevCoefficients.stream().mapToDouble(Double::doubleValue).toArray();
+		this.originalPrevCoefficients = prevCoefficients.stream().mapToDouble(Double::doubleValue).toArray();
 		this.coefficient = coefficient;
 		this.degree = degree;
 		this.expected = expected.stream().mapToDouble(Double::doubleValue).toArray();
@@ -34,12 +34,13 @@ public class CoefficientArrayCreateNextCoefficientsComprehensiveTest {
 
 	@Test
 	public void test() {
-		double[] copyOfPrevCoefficients = Arrays.copyOf(prevCoefficients, prevCoefficients.length);
-		double[] nextCoefficients = CoefficientArrayUtils.createNextCoefficients(coefficient, degree, prevCoefficients);
+		double[] passedInPrevCoefficients = Arrays.copyOf(originalPrevCoefficients, originalPrevCoefficients.length);
+		double[] nextCoefficients = CoefficientArrayUtils.createNextCoefficients(coefficient, degree,
+				passedInPrevCoefficients);
 		assertArrayEquals(expected, nextCoefficients, 0.0);
-		assertArrayEquals(
-				"\ncreateNextCoefficients should not mutate (that is: change the contents of) its previousCoefficients parameter.",
-				copyOfPrevCoefficients, prevCoefficients, 0.0);
+
+		final String NO_MUTATION_MESSAGE = "\ncreateNextCoefficients should not mutate (that is: change the contents of) its previousCoefficients parameter.";
+		assertArrayEquals(NO_MUTATION_MESSAGE, originalPrevCoefficients, passedInPrevCoefficients, 0.0);
 	}
 
 	@Parameters(name = "prevCoefficients: {0}; coefficient: {1}; degree: {2}; expected: {3}")

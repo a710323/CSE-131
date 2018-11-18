@@ -48,7 +48,7 @@ public abstract class AbstractPolynomialToStringTest extends AbstractPolynomialS
 					assertThat(stringRepresentation, containsString("x"));
 				}
 			}
-			if (coefficient != 1.0) {
+			if (Math.abs(coefficient) != 1.0) {
 				assertThat(stringRepresentation, containsString(Double.toString(coefficient)));
 			}
 		}

@@ -29,12 +29,13 @@ import lab8.tests.polynomial.dense.SpaceLeftBlankDensePolynomialTest;
  * @author Dennis Cosgrove (http://www.cse.wustl.edu/~cosgroved/)
  */
 @RunWith(Suite.class)
-@Suite.SuiteClasses({ SpaceLeftBlankDensePolynomialTest.class, DensePolynomialConstructorTest.class,
-		CoefficientArrayLengthForDegreePreliminaryTest.class, CoefficientArrayLengthForDegreeComprehensiveTest.class,
+@Suite.SuiteClasses({ SpaceLeftBlankDensePolynomialTest.class, DensePolynomialIsAPolynomialTest.class,
+		DensePolynomialConstructorTest.class, CoefficientArrayLengthForDegreePreliminaryTest.class,
+		CoefficientArrayLengthForDegreeComprehensiveTest.class,
 		CoefficientArrayLengthForDegreeAndPreviousArrayPreliminaryTest.class,
 		CoefficientArrayLengthForDegreeAndPreviousArrayComprehensiveTest.class,
 		CoefficientArrayCreateNextCoefficientsPreliminaryTest.class,
-		CoefficientArrayCreateNextCoefficientsComprehensiveTest.class, DensePolynomialIsAPolynomialTest.class,
+		CoefficientArrayCreateNextCoefficientsComprehensiveTest.class,
 		DensePolynomialAddSingleNonZeroCoefficientTermTest.class, DensePolynomialAddSingleZeroCoefficientTermTest.class,
 		DensePolynomialAddMultipleTermsTest.class, DensePolynomialGetCoefficientAtDegreeTest.class,
 		DensePolynomialDegreeTest.class, DensePolynomialEvalATest.class, DensePolynomialEvalBTest.class,

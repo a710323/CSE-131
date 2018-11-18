@@ -42,7 +42,7 @@ public abstract class AbstractPolynomialAddSingleZeroCoefficientTermTest extends
 
 		Random random = new Random();
 		for (int i = 0; i < 3; ++i) {
-			result.add(new Object[] { N + random.nextInt(1_000) });
+			result.add(new Object[] { N + random.nextInt(100) });
 		}
 
 		return result;

@@ -3,6 +3,12 @@ package lab8.tests.polynomial.dense;
 import static org.junit.Assert.assertArrayEquals;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertSame;
+import static org.junit.Assert.assertThat;
+
+import static org.hamcrest.core.IsNot.not;
+import static org.hamcrest.core.IsEqual.equalTo;
+
+import java.util.Arrays;
 
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
@@ -23,14 +29,14 @@ public class DensePolynomialAddSingleZeroCoefficientTermTest
 
 	@Override
 	public void testAddSingleNonZeroTerm() throws IllegalArgumentException, IllegalAccessException {
-		final double EPSILON = 0.0;
+		final double ZERO_EPSILON = 0.0;
 		DensePolynomial polynomial = new DensePolynomial();
 
 		double[] expecteds = new double[] { 0.0 };
 		double[] actuals = CoefficientsAccessUtils.getCoefficients(polynomial);
 
 		assertEquals(expecteds.length, actuals.length);
-		assertArrayEquals(expecteds, actuals, EPSILON);
+		assertArrayEquals(expecteds, actuals, ZERO_EPSILON);
 
 		int degree = getDegree();
 		double coefficient = 0.0;
@@ -40,7 +46,22 @@ public class DensePolynomialAddSingleZeroCoefficientTermTest
 
 		double[] actualsPrime = CoefficientsAccessUtils.getCoefficients(polynomialPrime);
 
-		assertEquals(expecteds.length, actualsPrime.length);
-		assertArrayEquals(expecteds, actualsPrime, EPSILON);
+		if (degree != 0) {
+			double[] notIgnoringZeroCoefficientResult = new double[degree + 1]; // note: filled with 0.0
+			assertThat(toNotIgnorigingZeroCoefficientMessage(), actualsPrime,
+					not(equalTo(notIgnoringZeroCoefficientResult)));
+		}
+
+		assertEquals(toLengthMessage(expecteds, actualsPrime), expecteds.length, actualsPrime.length);
+		assertArrayEquals(expecteds, actualsPrime, ZERO_EPSILON);
+	}
+
+	private static String toNotIgnorigingZeroCoefficientMessage() {
+		return "\nThis error is so common we created a custom test to ensure that you are NOT returning this result.\nWhen asked to add a 0.0 coefficient term you should simply return the \"this\" polynomial unchanged.\nNote: you are free to do this because your class is immutable.\nIn this case, the coefficient array should be: [<0.0>]";
+	}
+
+	private static String toLengthMessage(double[] expecteds, double[] actualsPrime) {
+		return "array lengths to not match\narrays:\n\texpecteds: " + Arrays.toString(expecteds) + " but was "
+				+ Arrays.toString(actualsPrime) + "\nlengths:\n\t";
 	}
 }
