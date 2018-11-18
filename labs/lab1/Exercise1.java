@@ -7,6 +7,17 @@ public class Exercise1 {
 		int[] num = new int[8];
 		int N = num.length;
 		
+		double[][] cpy = {
+				{-1,-3,78},
+				{-2,8, 91}
+		};
+		
+		for (double s : cpy[0]) {
+			s = s * 2;
+			System.out.println(s);
+		}
+		
+		
 //		Set<Set<Integer>> mySet = new HashSet<>();
 //		Set<Integer> solution1 = new HashSet<>();
 //		solution1.add(2);
