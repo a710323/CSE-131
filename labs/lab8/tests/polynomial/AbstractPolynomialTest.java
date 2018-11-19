@@ -30,7 +30,7 @@ public abstract class AbstractPolynomialTest {
 
 		final double EPSILON = 0.0;
 
-		for (int d = 0; d < highestDegree; d++) {
+		for (int d = 0; d <= highestDegree; d++) {
 			for (Term term : terms) {
 				if (term.getDegree() == d) {
 					StringBuilder sb = new StringBuilder();
@@ -54,7 +54,7 @@ public abstract class AbstractPolynomialTest {
 			sb.append("(past highest) degree: ");
 			sb.append(d);
 			sb.append(";");
-			assertEquals(message, 0.0, polynomial.getCoefficientAtDegree(d), EPSILON);
+			assertEquals(sb.toString(), 0.0, polynomial.getCoefficientAtDegree(d), EPSILON);
 		}
 	}
 
