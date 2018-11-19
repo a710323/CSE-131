@@ -3,7 +3,7 @@ package matrix;
 
 public class Matrix {
 
-	private double[][] values;
+	public double[][] values;
 
 	/**
 	 * The Matrix is based on the supplied two-dimensional array of values.
