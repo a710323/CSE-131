@@ -4,7 +4,7 @@ package matrix;
 public class Matrix {
 
 	public double[][] values;
-
+	
 	/**
 	 * The Matrix is based on the supplied two-dimensional array of values.
 	 * Be sure to make your own copy of the values, so that changes to the

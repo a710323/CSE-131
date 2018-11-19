@@ -48,7 +48,6 @@ public class Gaussian {
             }
             x[i][0] = (this.constants.values[i][0] - sum) / this.coeff.values[i][i];
         }
-        
         for(int i = 0; i < x.length; i++) {
         	x[i][0] = Math.round(x[i][0] * 100) / 100;
         }
