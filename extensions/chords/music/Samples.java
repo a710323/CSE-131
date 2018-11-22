@@ -11,13 +11,18 @@ import sedgewick.StdAudio;
  */
 
 public class Samples {
-	
+	private double[] myArray;
 	
 	/**
 	 * Capture the specified samples in our local array, so that they are safe from modification
 	 * @param samples
 	 */
 	public Samples(double[] samples) {
+		double[] copy = new double[samples.length];
+		for(int i = 0; i < samples.length; i++) {
+			copy[i] = samples[i];
+		}
+		this.myArray = copy;
 	}
 	
 	/**
@@ -25,6 +30,10 @@ public class Samples {
 	 * @param length
 	 */
 	public Samples(int length) {
+		this.myArray = new double[length];
+		for(int i = 0; i < length; i++) {
+			this.myArray[i] = 0;
+		}
 	}
 	
 	/**
@@ -33,7 +42,15 @@ public class Samples {
 	 * @return the concatenation of these samples with the other samples
 	 */
 	public Samples concat(Samples other) {
-		return null; // FIXME
+		double[] copy = new double[this.myArray.length + other.myArray.length];
+		for (int i = 0; i < this.myArray.length; i++) {
+			copy[i] = this.myArray[i];
+		}
+		for(int i = this.myArray.length; i < other.myArray.length + this.myArray.length; i++) {
+			copy[i] = other.myArray[i-this.myArray.length];
+		}
+		Samples d = new Samples(copy);
+		return d;
 	}
 	
 	/**
@@ -42,7 +59,21 @@ public class Samples {
 	 * @return the numerical addition of these and the other samples, padded by 0 where necessary
 	 */
 	public Samples combine(Samples other) {
-		return null;  // FIXME
+		double[] copy = new double[Math.max(this.myArray.length, other.myArray.length)];
+		for(int i = 0; i < Math.min(this.myArray.length, other.myArray.length); i++) {
+			copy[i] = this.myArray[i] + other.myArray[i];
+		}
+		if (this.myArray.length > other.myArray.length) {
+			for (int i = other.myArray.length; i < this.myArray.length; i++) {
+				copy[i] = this.myArray[i];
+			}
+		} else {
+			for(int i = this.myArray.length; i < other.myArray.length; i++) {
+				copy[i] = other.myArray[i];
+			}
+		}
+		Samples d = new Samples(copy);
+		return d;
 	}
 	
 	/**
@@ -51,14 +82,16 @@ public class Samples {
 	 */
 	
 	public int getNumSamples() {
-		return 0; // FIXME
+		return this.myArray.length;
 	}
 	
 	/**
 	 * Play these samples, by calling StdAudio.play(..) passing in the double array of samples
 	 */
 	public void play() {
-		// FIXME
+		for(int i = 0; i < this.myArray.length; i++) {
+			StdAudio.play(this.myArray[i]);
+		}
 	}
 	
 	public String toString() {
@@ -71,7 +104,7 @@ public class Samples {
 	 * @return the specified sample value
 	 */
 	public double getSample(int i) {
-		return 0.0;  // FIXME
+		return this.myArray[i];
 	}
 	
 	/**
@@ -79,7 +112,13 @@ public class Samples {
 	 * @return the maximum value
 	 */
 	public double getMax() {
-		return 0.0;  // FIXME
+		double max = Double.MIN_VALUE;
+		for (int i = 0; i < this.myArray.length; i++) {
+			if(this.myArray[i] > max) {
+				max = this.myArray[i];
+			}
+		}
+		return max;
 	}
 	
 	/**
@@ -87,7 +126,13 @@ public class Samples {
 	 * @return the minimum value
 	 */
 	public double getMin() {
-		return 0.0;  // FIXME
+		double min = Double.MAX_VALUE;
+		for (int i = 0; i < this.myArray.length; i++) {
+			if(this.myArray[i] < min) {
+				min = this.myArray[i];
+			}
+		}
+		return min;
 	}
 
 }
