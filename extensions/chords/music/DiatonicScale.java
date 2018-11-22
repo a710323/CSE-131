@@ -166,8 +166,6 @@ public class DiatonicScale {
 		return ans;
 	}
 
-
-
 	/**
 	 * You can run this to see some diatonic scales
 	 * @param args

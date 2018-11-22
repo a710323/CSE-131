@@ -20,6 +20,7 @@ public class Pitch {
 		this.p = p;
 	}
 	
+	
 	/**
 	 * Return the pitch that is diff away from this pitch, chromatically.
 	 * For example, if this pitch is a C natural, then getChromaticRelative(1) returns

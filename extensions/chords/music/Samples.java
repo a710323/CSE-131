@@ -10,6 +10,7 @@ import sedgewick.StdAudio;
  *
  */
 
+
 public class Samples {
 	private double[] myArray;
 	
