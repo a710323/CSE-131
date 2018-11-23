@@ -12,6 +12,8 @@ import lab8.tests.polynomial.dense.CoefficientArrayLengthForDegreePreliminaryTes
 import lab8.tests.polynomial.dense.DensePolynomialAddMultipleTermsTest;
 import lab8.tests.polynomial.dense.DensePolynomialAddSingleNonZeroCoefficientTermTest;
 import lab8.tests.polynomial.dense.DensePolynomialAddSingleZeroCoefficientTermTest;
+import lab8.tests.polynomial.dense.DensePolynomialAddTermPreliminaryTest;
+import lab8.tests.polynomial.dense.DensePolynomialAddZeroCoefficientTermPreliminaryTest;
 import lab8.tests.polynomial.dense.DensePolynomialConstructorTest;
 import lab8.tests.polynomial.dense.DensePolynomialDegreePreliminaryTest;
 import lab8.tests.polynomial.dense.DensePolynomialDegreeTest;
@@ -38,12 +40,14 @@ import lab8.tests.polynomial.dense.StepThroughDensePolynomialTest;
 		CoefficientArrayLengthForDegreeAndPreviousArrayPreliminaryTest.class,
 		CoefficientArrayLengthForDegreeAndPreviousArrayComprehensiveTest.class,
 		CoefficientArrayCreateNextCoefficientsPreliminaryTest.class,
-		CoefficientArrayCreateNextCoefficientsComprehensiveTest.class,
-		DensePolynomialAddSingleNonZeroCoefficientTermTest.class, DensePolynomialAddSingleZeroCoefficientTermTest.class,
-		DensePolynomialAddMultipleTermsTest.class, DensePolynomialGetCoefficientAtDegreePreliminaryTest.class,
-		DensePolynomialGetCoefficientAtDegreeTest.class, DensePolynomialDegreePreliminaryTest.class,
-		DensePolynomialDegreeTest.class, DensePolynomialEvalPreliminaryTest.class, DensePolynomialEvalATest.class,
-		DensePolynomialEvalBTest.class, DensePolynomialSumTest.class, DensePolynomialDerivativeTest.class,
+		CoefficientArrayCreateNextCoefficientsComprehensiveTest.class, DensePolynomialAddTermPreliminaryTest.class,
+		DensePolynomialAddSingleNonZeroCoefficientTermTest.class,
+		DensePolynomialAddZeroCoefficientTermPreliminaryTest.class,
+		DensePolynomialAddSingleZeroCoefficientTermTest.class, DensePolynomialAddMultipleTermsTest.class,
+		DensePolynomialGetCoefficientAtDegreePreliminaryTest.class, DensePolynomialGetCoefficientAtDegreeTest.class,
+		DensePolynomialDegreePreliminaryTest.class, DensePolynomialDegreeTest.class,
+		DensePolynomialEvalPreliminaryTest.class, DensePolynomialEvalATest.class, DensePolynomialEvalBTest.class,
+		DensePolynomialSumTest.class, DensePolynomialDerivativeTest.class,
 		DensePolynomialToStringIsOverriddenTest.class, DensePolynomialToStringTest.class,
 		StepThroughDensePolynomialTest.class })
 public class DensePolynomialTestSuite {

@@ -9,6 +9,8 @@ import lab9.tests.polynomial.sparse.SpaceLeftBlankSparsePolynomialTest;
 import lab9.tests.polynomial.sparse.SparsePolynomialAddMultipleTermsTest;
 import lab9.tests.polynomial.sparse.SparsePolynomialAddSingleNonZeroCoefficientTermTest;
 import lab9.tests.polynomial.sparse.SparsePolynomialAddSingleZeroCoefficientTermTest;
+import lab9.tests.polynomial.sparse.SparsePolynomialAddTermPreliminaryTest;
+import lab9.tests.polynomial.sparse.SparsePolynomialAddZeroCoefficientTermPreliminaryTest;
 import lab9.tests.polynomial.sparse.SparsePolynomialConstructorTest;
 import lab9.tests.polynomial.sparse.SparsePolynomialDegreeNotSizeNorCoefficientTest;
 import lab9.tests.polynomial.sparse.SparsePolynomialDegreePreliminaryTest;
@@ -32,8 +34,9 @@ import lab9.tests.polynomial.sparse.StepThroughSparsePolynomialTest;
 @RunWith(Suite.class)
 @Suite.SuiteClasses({ SpaceLeftBlankSparsePolynomialTest.class, SparsePolynomialIsAPolynomialTest.class,
 		SparsePolynomialConstructorTest.class, MapDegreeToCoefficiantCreateNextPreliminaryTest.class,
-		MapDegreeToCoefficiantCreateNextComprehensiveTest.class,
+		MapDegreeToCoefficiantCreateNextComprehensiveTest.class, SparsePolynomialAddTermPreliminaryTest.class,
 		SparsePolynomialAddSingleNonZeroCoefficientTermTest.class,
+		SparsePolynomialAddZeroCoefficientTermPreliminaryTest.class,
 		SparsePolynomialAddSingleZeroCoefficientTermTest.class, SparsePolynomialAddMultipleTermsTest.class,
 		SparsePolynomialGetCoefficientAtDegreePreliminaryTest.class, SparsePolynomialGetCoefficientAtDegreeTest.class,
 		SparsePolynomialDegreeNotSizeNorCoefficientTest.class, SparsePolynomialDegreePreliminaryTest.class,

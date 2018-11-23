@@ -35,7 +35,6 @@ public class DensePolynomialAddSingleZeroCoefficientTermTest
 		double[] expecteds = new double[] { 0.0 };
 		double[] actuals = CoefficientsAccessUtils.getCoefficients(polynomial);
 
-		assertEquals(expecteds.length, actuals.length);
 		assertArrayEquals(expecteds, actuals, ZERO_EPSILON);
 
 		int degree = getDegree();
