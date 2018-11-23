@@ -11,11 +11,14 @@ import lab9.tests.polynomial.sparse.SparsePolynomialAddSingleNonZeroCoefficientT
 import lab9.tests.polynomial.sparse.SparsePolynomialAddSingleZeroCoefficientTermTest;
 import lab9.tests.polynomial.sparse.SparsePolynomialConstructorTest;
 import lab9.tests.polynomial.sparse.SparsePolynomialDegreeNotSizeNorCoefficientTest;
+import lab9.tests.polynomial.sparse.SparsePolynomialDegreePreliminaryTest;
 import lab9.tests.polynomial.sparse.SparsePolynomialDegreeTest;
 import lab9.tests.polynomial.sparse.SparsePolynomialDerivativeTest;
 import lab9.tests.polynomial.sparse.SparsePolynomialEvalATest;
 import lab9.tests.polynomial.sparse.SparsePolynomialEvalBTest;
+import lab9.tests.polynomial.sparse.SparsePolynomialEvalPreliminaryTest;
 import lab9.tests.polynomial.sparse.SparsePolynomialExtremelyHighDegreeTest;
+import lab9.tests.polynomial.sparse.SparsePolynomialGetCoefficientAtDegreePreliminaryTest;
 import lab9.tests.polynomial.sparse.SparsePolynomialGetCoefficientAtDegreeTest;
 import lab9.tests.polynomial.sparse.SparsePolynomialIsAPolynomialTest;
 import lab9.tests.polynomial.sparse.SparsePolynomialSumTest;
@@ -32,9 +35,10 @@ import lab9.tests.polynomial.sparse.StepThroughSparsePolynomialTest;
 		MapDegreeToCoefficiantCreateNextComprehensiveTest.class,
 		SparsePolynomialAddSingleNonZeroCoefficientTermTest.class,
 		SparsePolynomialAddSingleZeroCoefficientTermTest.class, SparsePolynomialAddMultipleTermsTest.class,
-		SparsePolynomialGetCoefficientAtDegreeTest.class, SparsePolynomialDegreeNotSizeNorCoefficientTest.class,
-		SparsePolynomialDegreeTest.class, SparsePolynomialEvalATest.class, SparsePolynomialEvalBTest.class,
-		SparsePolynomialSumTest.class, SparsePolynomialDerivativeTest.class,
+		SparsePolynomialGetCoefficientAtDegreePreliminaryTest.class, SparsePolynomialGetCoefficientAtDegreeTest.class,
+		SparsePolynomialDegreeNotSizeNorCoefficientTest.class, SparsePolynomialDegreePreliminaryTest.class,
+		SparsePolynomialDegreeTest.class, SparsePolynomialEvalPreliminaryTest.class, SparsePolynomialEvalATest.class,
+		SparsePolynomialEvalBTest.class, SparsePolynomialSumTest.class, SparsePolynomialDerivativeTest.class,
 		SparsePolynomialToStringIsOverriddenTest.class, SparsePolynomialToStringTest.class,
 		SparsePolynomialExtremelyHighDegreeTest.class, StepThroughSparsePolynomialTest.class })
 public class SparsePolynomialTestSuite {
