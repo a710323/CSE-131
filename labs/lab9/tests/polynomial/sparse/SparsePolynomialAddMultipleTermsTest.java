@@ -9,14 +9,11 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import org.junit.Rule;
 import org.junit.Test;
-import org.junit.rules.TestRule;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 import org.junit.runners.Parameterized.Parameters;
 
-import lab5.tests.utils.UnitTestUtils;
 import lab8.Polynomial;
 import lab8.tests.polynomial.AbstractPolynomialTest;
 import lab8.tests.util.PolynomialTermUtils;
