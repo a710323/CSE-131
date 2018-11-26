@@ -55,6 +55,18 @@ public class MapDegreeToCoefficientUtils {
 	 * @return a new resulting Map of adding coefficient*x^degree to a copy prevMap
 	 */
 	public static Map<Integer, Double> createNextMap(double coefficient, int degree, Map<Integer, Double> prevMap) {
-		throw new NotYetImplementedException("delete this line of code and implement this method.");
+		if (coefficient == 0) {
+			return prevMap;
+		} else if (prevMap.containsKey(degree)) {
+			Map<Integer, Double> copy2 = copyMap(prevMap);
+			double copy = prevMap.getOrDefault(degree, 0.0);
+			copy = copy + coefficient;
+			copy2.replace(degree, copy);
+			return copy2;
+		} else {
+			Map<Integer, Double> copy2 = copyMap(prevMap);
+			copy2.put(degree, coefficient);
+			return copy2;
+		}
 	}
 }
