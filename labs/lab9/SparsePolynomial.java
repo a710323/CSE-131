@@ -41,7 +41,7 @@ public class SparsePolynomial implements Polynomial {
 	private SparsePolynomial(Map<Integer, Double> map) {
 		this.myMap = map;
 	}
-
+	
 	@Override
 	public Polynomial addTerm(double coefficient, int degree) {
 		Map<Integer, Double> copy = this.myMap;

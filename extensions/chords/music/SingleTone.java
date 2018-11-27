@@ -23,7 +23,7 @@ public class SingleTone {
 	 */
 	public Samples getSamples(double amplitude, double duration) {
 		double hz = this.frequency;
-		int pitch = (int) (12 / Math.log(2) * Math.log(hz/440));
+		int pitch = (int) Math.round((12 / Math.log(2) * Math.log(hz/440)));
 		int N = (int) (StdAudio.SAMPLE_RATE * duration);
 		double[] a = new double[N+1];
 		for (int i = 0; i < a.length; i++) {

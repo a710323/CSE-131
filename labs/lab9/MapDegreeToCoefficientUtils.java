@@ -60,7 +60,7 @@ public class MapDegreeToCoefficientUtils {
 		} else if (prevMap.containsKey(degree)) {
 			Map<Integer, Double> copy2 = copyMap(prevMap);
 			double copy = prevMap.getOrDefault(degree, 0.0);
-			copy = copy + coefficient;
+			copy += coefficient;
 			copy2.replace(degree, copy);
 			return copy2;
 		} else {
