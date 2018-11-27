@@ -299,4 +299,13 @@ public class ArgsProcessor {
 
 	}
 
+	public void setCurArg(int i) {
+		if(i < args.length && i >= 0) {
+			curArg = i;
+		}
+		else {
+			throw new IllegalArgumentException();
+		}
+	}
+
 }
