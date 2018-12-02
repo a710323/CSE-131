@@ -1,7 +1,9 @@
 package finalproject;
 
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Map;
 import java.util.Scanner;
 import java.util.Set;
 
@@ -9,9 +11,13 @@ import cse131.ArgsProcessor;
 import cse131.NotYetImplementedException;
 
 public class HumanPlayer implements Player {
-	
+
 	private final ArgsProcessor ap; // Don't change this!
-	
+	private String name;
+	private int height;
+	private int width;
+	private int numShips;
+	private Map<Integer, Ship> shipMap = new HashMap<Integer, Ship>();
 	/**
 	 * Creates an instance of the HumanPlayer class
 	 * Note that we already dealt with taking in an ArgsProcessor object
@@ -27,11 +33,32 @@ public class HumanPlayer implements Player {
 	 */
 	public HumanPlayer(String name, int height, int width, ArgsProcessor ap) {
 		this.ap = ap;
+		this.name = name;
+		this.height = height;
+		this.width = width;
+		this.numShips = 0;
 	}
 
 	@Override
 	public boolean addShip(Ship s) {
-		throw new NotYetImplementedException("Delete this line and implement this method");
+		if(s.getxArr()[0] < 0 || s.getyArr()[0] < 0) {
+			return false;
+		}
+		if(s.getxArr().length >= 20 || s.getyArr().length >= 20) {
+			return false;
+		}
+		if(this.shipMap.size() == 0) {
+			this.shipMap.put(0, s);
+			this.numShips++;
+			return true;
+		} else {
+			if(isValidShipToAdd(s)) {
+				this.shipMap.put(this.numShips, s);
+				return true;
+			} else {
+				return false;
+			}
+		}
 	}
 
 	@Override
@@ -51,7 +78,7 @@ public class HumanPlayer implements Player {
 
 	@Override
 	public String getName() {
-		throw new NotYetImplementedException("Delete this line and implement this method");
+		return this.name;
 	}
 
 	@Override
@@ -61,7 +88,7 @@ public class HumanPlayer implements Player {
 
 	@Override
 	public int numShipsStillAfloat() {
-		throw new NotYetImplementedException("Delete this line and implement this method");
+		return numShips;
 	}
 
 	@Override
@@ -71,7 +98,57 @@ public class HumanPlayer implements Player {
 
 	@Override
 	public boolean isValidShipToAdd(Ship s) {
-		throw new NotYetImplementedException("Delete this line and implement this method");
+		for(int i = 0; i < this.shipMap.size(); i++) {
+			if(this.shipMap.get(i).equals(s)) {
+				return false;
+			}
+		}
+		for(int i = 0; i < this.shipMap.size(); i++) {
+			if(this.shipMap.get(i).getIsHorizontal() && s.getIsHorizontal()) {
+				if(this.shipMap.get(i).getyArr()[0] != s.getyArr()[0]) {
+					return true;
+				} else {
+					for(int j = 0; j < s.getxArr().length; j++) {
+						for(int k = 0; k < this.shipMap.get(i).getxArr().length; k++) {
+							if(this.shipMap.get(i).getxArr()[k] == s.getxArr()[j]) {
+								return false;
+							}
+						}
+					}
+				}
+			} else if (this.shipMap.get(i).getIsHorizontal() && !s.getIsHorizontal()) {
+				for(int j = 0; j < s.getyArr().length; j++) {
+					for(int k = 0; k < this.shipMap.get(i).getxArr().length; k++) {
+						if(this.shipMap.get(i).getxArr()[k] == s.getxArr()[0] && 
+								this.shipMap.get(i).getyArr()[0] == s.getyArr()[j]) {
+							return false;
+						}
+					}
+				}
+			} else if(!this.shipMap.get(i).getIsHorizontal() && s.getIsHorizontal()) {
+				for(int j = 0; j < s.getxArr().length; j++) {
+					for(int k = 0; k < this.shipMap.get(i).getyArr().length; k++) {
+						if(this.shipMap.get(i).getxArr()[0] == s.getxArr()[j] && 
+								this.shipMap.get(i).getyArr()[k] == s.getyArr()[j]) {
+							return false;
+						}
+					}
+				}
+			} else {
+				if(this.shipMap.get(i).getxArr()[0] != s.getxArr()[0]) {
+					return true;
+				} else {
+					for(int j = 0; j < s.getyArr().length; j++) {
+						for(int k = 0; k < this.shipMap.get(i).getyArr().length; k++) {
+							if(this.shipMap.get(i).getyArr()[k] == s.getyArr()[j]) {
+								return false;
+							}
+						}
+					}
+				}
+			}
+		}
+		return true;
 	}
 
 	@Override

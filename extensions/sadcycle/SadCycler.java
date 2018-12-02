@@ -24,7 +24,7 @@ public class SadCycler {
 		return mySet;
 	}
 	public static void main(String[] args) {
-		Set<Long> q = findCycle(2, 98);
+		Set<Long> q = findCycle(2, 16);
 		System.out.println(q);
 	}
 }

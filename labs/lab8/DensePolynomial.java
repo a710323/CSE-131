@@ -63,6 +63,7 @@ public class DensePolynomial implements Polynomial{
 			arr[0] = 0.0;
 			Polynomial d = new DensePolynomial(arr);
 			return d;
+			
 		}
 		double[] arr = new double[this.myDouble.length-1];
 		for(int i = 1; i < this.myDouble.length; i++) {
@@ -70,6 +71,28 @@ public class DensePolynomial implements Polynomial{
 		}
 		Polynomial d = new DensePolynomial(arr);
 		return d;
+	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + Arrays.hashCode(myDouble);
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		DensePolynomial other = (DensePolynomial) obj;
+		if (!Arrays.equals(myDouble, other.myDouble))
+			return false;
+		return true;
 	}
 
 	//	sum two polynomial, if the length of one array is larger than the other,
