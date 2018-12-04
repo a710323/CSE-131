@@ -16,6 +16,13 @@ public class Ship {
 	private int[] xArr;
 	private int[] yArr;
 	private boolean isHorizontal;
+	private int shipLength;
+	private int topX;
+	private int topY;
+
+	public int getShipLength() {
+		return shipLength;
+	}
 
 	@Override
 	public String toString() {
@@ -70,13 +77,18 @@ public class Ship {
 	 */
 	public Ship(int topLeftX, int topLeftY, int length, boolean isHorizontal) {
 		this.isHorizontal = isHorizontal;
+		this.shipLength = length;
 		this.hitCount = 0;
+		this.topX = topLeftX;
+		this.topY = topLeftY;
 		if(isHorizontal) {
 			this.xArr = new int[length];
 			this.yArr = new int[1];
 			for(int i = 0; i < length; i++) {
 				this.yArr[0] = topLeftY;
 				this.xArr[i] = topLeftX + i;
+				this.hitXArr[0] =-1;
+				this.hitYArr[0] =-1;
 			}
 		} else {
 			this.yArr = new int[length];
@@ -84,6 +96,8 @@ public class Ship {
 			for(int i = 0; i < length; i++) {
 				this.xArr[0] = topLeftX;
 				this.yArr[i] = topLeftY + i;
+				this.hitXArr[0] =-1;
+				this.hitYArr[0] =-1;
 			}
 		}
 	}
@@ -123,6 +137,10 @@ public class Ship {
 	 * @return true if this ship occupies that spot (hit), false otherwise (miss)
 	 */
 	public boolean isHit(int x, int y) {
+//		if(x == 0 && y == 0 && this.hitCount == 0) {
+//			this.hitCount++;
+//			return true;
+//		}
 		if(isHorizontal) {
 			if(this.yArr[0] != y) {
 				return false;
@@ -132,19 +150,16 @@ public class Ship {
 						for(int j = 0; j < this.hitXArr.length; j++) {
 							if(this.hitXArr[j] == x) {
 								return true;
-							} else {
-								this.hitXArr = Arrays.copyOf(this.hitXArr, this.hitCount + 1);
-								this.hitXArr[this.hitCount] = x;
-								this.hitYArr = Arrays.copyOf(this.hitYArr, this.hitCount + 1);
-								this.hitYArr[this.hitCount] = y;
-								this.hitCount++;
-								return true;
 							}
 						}
-
+						this.hitXArr = Arrays.copyOf(this.hitXArr, this.hitCount + 1);
+						this.hitXArr[this.hitCount] = x;
+						this.hitYArr = Arrays.copyOf(this.hitYArr, this.hitCount + 1);
+						this.hitYArr[this.hitCount] = y;
+						this.hitCount++;
+						return true;
 					}
 				}
-				return false;
 			}
 		} else {
 			if(this.xArr[0] != x) {
@@ -155,27 +170,36 @@ public class Ship {
 						for(int j = 0; j < this.hitYArr.length; j++) {
 							if(this.hitYArr[j] == y) {
 								return true;
-							} else {
-								this.hitXArr = Arrays.copyOf(this.hitXArr, this.hitCount + 1);
-								this.hitXArr[this.hitCount] = x;
-								this.hitYArr = Arrays.copyOf(this.hitYArr, this.hitCount + 1);
-								this.hitYArr[this.hitCount] = y;
-								this.hitCount++;
-								return true;
 							}
 						}
+						this.hitXArr = Arrays.copyOf(this.hitXArr, this.hitCount + 1);
+						this.hitXArr[this.hitCount] = x;
+						this.hitYArr = Arrays.copyOf(this.hitYArr, this.hitCount + 1);
+						this.hitYArr[this.hitCount] = y;
+						this.hitCount++;
+						return true;
 					}
 				}
 			}
-			return false;
 		}
+		return false;
 	}
-
 	public int[] getxArr() {
 		return xArr;
 	}
-
 	public int[] getyArr() {
 		return yArr;
+	}
+	public int getTopX() {
+		return topX;
+	}
+	public int getTopY() {
+		return topY;
+	}
+	public int[] getHitXArr() {
+		return hitXArr;
+	}
+	public int[] getHitYArr() {
+		return hitYArr;
 	}
 }
