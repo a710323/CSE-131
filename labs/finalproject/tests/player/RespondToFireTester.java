@@ -17,18 +17,17 @@ public class RespondToFireTester {
 	@Rule
 	public TestRule timeout = UnitTestUtils.createTimeoutRule();
 
-	ArgsProcessor ap;
-	Player p;
+	private Player p;
 
 	@Before
 	public void setup() {
-		ap = new ArgsProcessor(new String[] {});
+		ArgsProcessor ap = new ArgsProcessor(new String[] {});
 		p = new HumanPlayer("Mariah", 10, 10, ap);
 	}
 
 	@Test
 	public void testRespondToFireHit() {
-		p.addShip(new Ship(0, 0, 1, true));
+		assertTrue(p.addShip(new Ship(0, 0, 1, true)));
 		assertTrue("There is a ship at (0, 0), it should be a hit", p.respondToFire(0, 0));
 	}
 

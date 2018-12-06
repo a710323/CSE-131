@@ -31,7 +31,7 @@ public class DecideShipPlacementTester {
 					Boolean.parseBoolean(input[3 * i + 2]));
 			Ship actual = p.decideShipPlacement(1);
 			assertEquals("The ship you returned was not the ship indicated by the input", expected, actual);
-			p.addShip(actual);
+			assertTrue(p.addShip(actual));
 		}
 	}
 
@@ -50,7 +50,7 @@ public class DecideShipPlacementTester {
 					Boolean.parseBoolean(input[3 * i + 2]));
 			Ship actual = p.decideShipPlacement(1);
 			assertEquals("The ship you returned was not the ship indicated by the input", expected, actual);
-			p.addShip(actual);
+			assertTrue(p.addShip(actual));
 			ap.setCurArg(3 * i);
 
 			if (i < 9) {
@@ -79,7 +79,7 @@ public class DecideShipPlacementTester {
 			Ship expected = new Ship(xTest[i], yTest[i], (i % 5) + 1, oTest[i]);
 			Ship actual = p.decideShipPlacement((i % 5) + 1);
 			assertEquals("The ship you returned was not the ship indicated by the input", expected, actual);
-			p.addShip(actual);
+			assertTrue(p.addShip(actual));
 		}
 	}
 
@@ -101,7 +101,7 @@ public class DecideShipPlacementTester {
 			Ship expected = new Ship(xTest[i], yTest[i], (i % 5) + 1, oTest[i]);
 			Ship actual = p.decideShipPlacement((i % 5) + 1);
 			assertEquals("The ship you return was not the ship indicated by the input", expected, actual);
-			p.addShip(actual);
+			assertTrue(p.addShip(actual));
 		}
 		Ship expected = new Ship(xTest[xTest.length - 1], yTest[yTest.length - 1], 3, oTest[oTest.length - 1]);
 		Ship actual = p.decideShipPlacement(3);
