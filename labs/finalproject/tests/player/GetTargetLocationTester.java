@@ -32,20 +32,20 @@ public class GetTargetLocationTester {
 		});
 		Player p = new HumanPlayer("Mariah", 10, 10, ap);
 		int[] loc = p.getTargetLocation();
-		assertEquals("You accepted a negative ship x location", loc[0], 0);
-		assertEquals("You accepted a negative ship y location", loc[1], 0);
+		assertEquals("You accepted a negative ship x location", 0, loc[0]);
+		assertEquals("You accepted a negative ship y location", 0, loc[1]);
 		
 		loc = p.getTargetLocation();
-		assertEquals("You accepted a ship x location that was too large", loc[0], 1);
-		assertEquals("You accepted a ship y location that was too large", loc[1], 1);
+		assertEquals("You accepted a ship x location that was too large", 1, loc[0]);
+		assertEquals("You accepted a ship y location that was too large", 1, loc[1]);
 		
 		loc = p.getTargetLocation();
-		assertEquals("You accepted a ship x location that was too large", loc[0], 2);
-		assertEquals("You accepted a ship y location that was too large", loc[1], 2);
+		assertEquals("You accepted a ship x location that was too large", 2, loc[0]);
+		assertEquals("You accepted a ship y location that was too large", 2, loc[1]);
 		
 		loc = p.getTargetLocation();
-		assertEquals("You accepted a ship x location that was too large", loc[0], 3);
-		assertEquals("You accepted a ship y location that was too large", loc[1], 3);
+		assertEquals("You accepted a ship x location that was too large", 3, loc[0]);
+		assertEquals("You accepted a ship y location that was too large", 3, loc[1]);
 	}
 
 }

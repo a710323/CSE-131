@@ -3,15 +3,20 @@ package finalproject.tests.player;
 import static org.junit.Assert.*;
 
 import org.junit.Before;
+import org.junit.Rule;
 import org.junit.Test;
+import org.junit.rules.TestRule;
 
 import cse131.ArgsProcessor;
 import finalproject.HumanPlayer;
 import finalproject.Player;
 import finalproject.Ship;
+import lab5.tests.utils.UnitTestUtils;
 
 public class AddShipTester {
-	
+	@Rule
+	public TestRule timeout = UnitTestUtils.createTimeoutRule();
+
 	ArgsProcessor ap;
 	Player p;
 	

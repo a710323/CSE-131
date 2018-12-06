@@ -2,11 +2,16 @@ package finalproject.tests.ship;
 
 import static org.junit.Assert.*;
 
+import org.junit.Rule;
 import org.junit.Test;
+import org.junit.rules.TestRule;
 
 import finalproject.Ship;
+import lab5.tests.utils.UnitTestUtils;
 
 public class IsHitTester {
+	@Rule
+	public TestRule timeout = UnitTestUtils.createTimeoutRule();
 
 	@Test
 	public void testIsHitHorizontal() {
