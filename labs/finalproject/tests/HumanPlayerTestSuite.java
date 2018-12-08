@@ -12,6 +12,7 @@ import finalproject.tests.player.GetTargetLocationPreliminaryTest;
 import finalproject.tests.player.GetTargetLocationTester;
 import finalproject.tests.player.IsValidShipToAddInBoundsLessThanOrEqualToTest;
 import finalproject.tests.player.IsValidShipToAddInBoundsPreliminaryTest;
+import finalproject.tests.player.IsValidShipToAddIsOverlappingPreliminaryTest;
 import finalproject.tests.player.IsValidShipToAddTester;
 import finalproject.tests.player.RespondToFireLessThanTest;
 import finalproject.tests.player.RespondToFirePreliminaryTest;
@@ -20,8 +21,9 @@ import finalproject.tests.player.RespondToFireTester;
 @RunWith(Suite.class)
 @Suite.SuiteClasses({ GetNameTest.class, IsValidShipToAddInBoundsLessThanOrEqualToTest.class,
 		IsValidShipToAddInBoundsPreliminaryTest.class, AllSunkTester.class, RespondToFireLessThanTest.class,
-		RespondToFirePreliminaryTest.class, RespondToFireTester.class, IsValidShipToAddTester.class,
-		AddShipTester.class, GetTargetLocationPreliminaryTest.class, GetTargetLocationTester.class,
-		DecideShipPlacementPreliminaryTest.class, DecideShipPlacementTester.class })
+		RespondToFirePreliminaryTest.class, RespondToFireTester.class,
+		IsValidShipToAddIsOverlappingPreliminaryTest.class, IsValidShipToAddTester.class, AddShipTester.class,
+		GetTargetLocationPreliminaryTest.class, GetTargetLocationTester.class, DecideShipPlacementPreliminaryTest.class,
+		DecideShipPlacementTester.class })
 public class HumanPlayerTestSuite {
 }
