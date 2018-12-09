@@ -111,7 +111,7 @@ public class IsHitComprehensiveTest {
 			for (int i = 0; i < 10; ++i) {
 				int x = random.nextInt(1000);
 				int y = random.nextInt(1000);
-				int length = random.nextInt(1000);
+				int length = random.nextInt(999)+1;
 
 				result.add(new Object[] { x, y, length, isHorizontal });
 			}
